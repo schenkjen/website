@@ -1,0 +1,114 @@
+[
+    {
+        "pk": 5, 
+        "model": "photologue.photosize", 
+        "fields": {
+            "name": "feature_thm", 
+            "watermark": null, 
+            "increment_count": false, 
+            "effect": null, 
+            "crop": true, 
+            "height": 40, 
+            "width": 40, 
+            "upscale": false, 
+            "pre_cache": false, 
+            "quality": 50
+        }
+    }, 
+    {
+        "pk": 7, 
+        "model": "photologue.photosize", 
+        "fields": {
+            "name": "search", 
+            "watermark": null, 
+            "increment_count": false, 
+            "effect": null, 
+            "crop": true, 
+            "height": 45, 
+            "width": 45, 
+            "upscale": false, 
+            "pre_cache": false, 
+            "quality": 50
+        }
+    }, 
+    {
+        "pk": 2, 
+        "model": "photologue.photosize", 
+        "fields": {
+            "name": "thumbnail", 
+            "watermark": null, 
+            "increment_count": false, 
+            "effect": null, 
+            "crop": false, 
+            "height": 60, 
+            "width": 60, 
+            "upscale": false, 
+            "pre_cache": true, 
+            "quality": 70
+        }
+    }, 
+    {
+        "pk": 1, 
+        "model": "photologue.photosize", 
+        "fields": {
+            "name": "admin_thumbnail", 
+            "watermark": null, 
+            "increment_count": false, 
+            "effect": null, 
+            "crop": true, 
+            "height": 70, 
+            "width": 70, 
+            "upscale": false, 
+            "pre_cache": true, 
+            "quality": 70
+        }
+    }, 
+    {
+        "pk": 6, 
+        "model": "photologue.photosize", 
+        "fields": {
+            "name": "blogmanage", 
+            "watermark": null, 
+            "increment_count": false, 
+            "effect": null, 
+            "crop": true, 
+            "height": 140, 
+            "width": 140, 
+            "upscale": false, 
+            "pre_cache": false, 
+            "quality": 70
+        }
+    }, 
+    {
+        "pk": 4, 
+        "model": "photologue.photosize", 
+        "fields": {
+            "name": "feature", 
+            "watermark": null, 
+            "increment_count": false, 
+            "effect": null, 
+            "crop": true, 
+            "height": 530, 
+            "width": 800, 
+            "upscale": false, 
+            "pre_cache": true, 
+            "quality": 70
+        }
+    }, 
+    {
+        "pk": 3, 
+        "model": "photologue.photosize", 
+        "fields": {
+            "name": "display", 
+            "watermark": null, 
+            "increment_count": true, 
+            "effect": null, 
+            "crop": false, 
+            "height": 1000, 
+            "width": 1000, 
+            "upscale": false, 
+            "pre_cache": true, 
+            "quality": 70
+        }
+    }
+]
