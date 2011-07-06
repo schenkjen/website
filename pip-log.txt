@@ -1,0 +1,256 @@
+Downloading/unpacking maintenancemode
+  Getting page http://pypi.python.org/simple/maintenancemode
+  Could not fetch URL http://pypi.python.org/simple/maintenancemode: HTTP Error 404: Not Found
+  Will skip URL http://pypi.python.org/simple/maintenancemode when looking for download links for maintenancemode
+  Getting page http://pypi.python.org/simple/
+  URLs to search for versions for maintenancemode:
+  * http://pypi.python.org/simple/maintenancemode/
+  Getting page http://pypi.python.org/simple/maintenancemode/
+  Could not fetch URL http://pypi.python.org/simple/maintenancemode/: HTTP Error 404: Not Found
+  Will skip URL http://pypi.python.org/simple/maintenancemode/ when looking for download links for maintenancemode
+  Could not find any downloads that satisfy the requirement maintenancemode
+No distributions at all found for maintenancemode
+Exception information:
+Traceback (most recent call last):
+  File "/home/sjphoto/lib/python2.5/pip-0.6.3-py2.5.egg/pip/basecommand.py", line 115, in main
+    self.run(options, args)
+  File "/home/sjphoto/lib/python2.5/pip-0.6.3-py2.5.egg/pip/commands/install.py", line 155, in run
+    requirement_set.install_files(finder, force_root_egg_info=self.bundle, bundle=self.bundle)
+  File "/home/sjphoto/lib/python2.5/pip-0.6.3-py2.5.egg/pip/req.py", line 823, in install_files
+    url = finder.find_requirement(req_to_install, upgrade=self.upgrade)
+  File "/home/sjphoto/lib/python2.5/pip-0.6.3-py2.5.egg/pip/index.py", line 117, in find_requirement
+    raise DistributionNotFound('No distributions at all found for %s' % req)
+DistributionNotFound: No distributions at all found for maintenancemode
+------------------------------------------------------------
+/home/sjphoto/bin/pip run on Sun Apr 11 14:10:25 2010
+Downloading/unpacking maintenancemode
+  Getting page http://pypi.python.org/simple/maintenancemode
+  Could not fetch URL http://pypi.python.org/simple/maintenancemode: HTTP Error 404: Not Found
+  Will skip URL http://pypi.python.org/simple/maintenancemode when looking for download links for maintenancemode
+  Getting page http://pypi.python.org/simple/
+  URLs to search for versions for maintenancemode:
+  * http://pypi.python.org/simple/maintenancemode/
+  Getting page http://pypi.python.org/simple/maintenancemode/
+  Could not fetch URL http://pypi.python.org/simple/maintenancemode/: HTTP Error 404: Not Found
+  Will skip URL http://pypi.python.org/simple/maintenancemode/ when looking for download links for maintenancemode
+  Could not find any downloads that satisfy the requirement maintenancemode
+No distributions at all found for maintenancemode
+Exception information:
+Traceback (most recent call last):
+  File "/home/sjphoto/lib/python2.5/pip-0.6.3-py2.5.egg/pip/basecommand.py", line 115, in main
+    self.run(options, args)
+  File "/home/sjphoto/lib/python2.5/pip-0.6.3-py2.5.egg/pip/commands/install.py", line 155, in run
+    requirement_set.install_files(finder, force_root_egg_info=self.bundle, bundle=self.bundle)
+  File "/home/sjphoto/lib/python2.5/pip-0.6.3-py2.5.egg/pip/req.py", line 823, in install_files
+    url = finder.find_requirement(req_to_install, upgrade=self.upgrade)
+  File "/home/sjphoto/lib/python2.5/pip-0.6.3-py2.5.egg/pip/index.py", line 117, in find_requirement
+    raise DistributionNotFound('No distributions at all found for %s' % req)
+DistributionNotFound: No distributions at all found for maintenancemode
+------------------------------------------------------------
+/home/sjphoto/bin/pip run on Sun Apr 11 14:11:02 2010
+Downloading/unpacking http://pypi.python.org/pypi/django-maintenancemode
+  Downloading from URL http://pypi.python.org/pypi/django-maintenancemode
+  Cannot unpack file /tmp/tmpLcul9p/django-maintenancemode (downloaded from /tmp/pip-SCIMJW-build, content-type: text/html; charset=utf-8); cannot detect archive format
+Cannot determine archive format of /tmp/pip-SCIMJW-build
+Exception information:
+Traceback (most recent call last):
+  File "/home/sjphoto/lib/python2.5/pip-0.6.3-py2.5.egg/pip/basecommand.py", line 115, in main
+    self.run(options, args)
+  File "/home/sjphoto/lib/python2.5/pip-0.6.3-py2.5.egg/pip/commands/install.py", line 155, in run
+    requirement_set.install_files(finder, force_root_egg_info=self.bundle, bundle=self.bundle)
+  File "/home/sjphoto/lib/python2.5/pip-0.6.3-py2.5.egg/pip/req.py", line 830, in install_files
+    self.unpack_url(url, location, self.is_download)
+  File "/home/sjphoto/lib/python2.5/pip-0.6.3-py2.5.egg/pip/req.py", line 1015, in unpack_url
+    self.unpack_file(temp_location, location, content_type, link)
+  File "/home/sjphoto/lib/python2.5/pip-0.6.3-py2.5.egg/pip/req.py", line 1068, in unpack_file
+    raise InstallationError('Cannot determine archive format of %s' % location)
+InstallationError: Cannot determine archive format of /tmp/pip-SCIMJW-build
+------------------------------------------------------------
+/home/sjphoto/bin/pip run on Mon Apr 26 08:27:57 2010
+Downloading/unpacking ssl
+  Getting page http://pypi.python.org/simple/ssl
+  URLs to search for versions for ssl:
+  * http://pypi.python.org/simple/ssl/
+  Getting page http://docs.python.org/dev/library/ssl.html
+  Analyzing links from page http://pypi.python.org/simple/ssl/
+    Found link http://pypi.python.org/packages/source/s/ssl/ssl-1.15.tar.gz#md5=81ea8a1175e437b4c769ae65b3290e0c (from http://pypi.python.org/simple/ssl/), version: 1.15
+    Skipping link http://docs.python.org/dev/library/ssl.html (from http://pypi.python.org/simple/ssl/); unknown archive format: .html
+  Analyzing links from page http://docs.python.org/dev/library/ssl.html
+    Skipping link http://docs.python.org/dev/_static/default.css (from http://docs.python.org/dev/library/ssl.html); unknown archive format: .css
+    Skipping link http://docs.python.org/dev/_static/pygments.css (from http://docs.python.org/dev/library/ssl.html); unknown archive format: .css
+    Skipping link http://docs.python.org/dev/_static/opensearch.xml (from http://docs.python.org/dev/library/ssl.html); unknown archive format: .xml
+    Skipping link http://docs.python.org/dev/about.html (from http://docs.python.org/dev/library/ssl.html); unknown archive format: .html
+    Skipping link http://docs.python.org/dev/copyright.html (from http://docs.python.org/dev/library/ssl.html); unknown archive format: .html
+    Skipping link http://docs.python.org/dev/index.html (from http://docs.python.org/dev/library/ssl.html); unknown archive format: .html
+    Skipping link http://docs.python.org/dev/library/ipc.html (from http://docs.python.org/dev/library/ssl.html); unknown archive format: .html
+    Skipping link http://docs.python.org/dev/library/signal.html (from http://docs.python.org/dev/library/ssl.html); unknown archive format: .html
+    Skipping link http://docs.python.org/dev/library/socket.html (from http://docs.python.org/dev/library/ssl.html); unknown archive format: .html
+    Skipping link http://docs.python.org/dev/_static/py.png (from http://docs.python.org/dev/library/ssl.html); unknown archive format: .png
+    Skipping link http://docs.python.org/dev/genindex.html (from http://docs.python.org/dev/library/ssl.html); unknown archive format: .html
+    Skipping link http://docs.python.org/dev/modindex.html (from http://docs.python.org/dev/library/ssl.html); unknown archive format: .html
+    Skipping link http://docs.python.org/dev/library/index.html (from http://docs.python.org/dev/library/ssl.html); unknown archive format: .html
+    Skipping link http://docs.python.org/dev/library/ssl.html#module-ssl (from http://docs.python.org/dev/library/ssl.html); unknown archive format: .html
+    Skipping link http://docs.python.org/dev/library/socket.html#socket.socket (from http://docs.python.org/dev/library/ssl.html); unknown archive format: .html
+    Skipping link http://docs.python.org/dev/library/ssl.html#functions-constants-and-exceptions (from http://docs.python.org/dev/library/ssl.html); unknown archive format: .html
+    Skipping link http://docs.python.org/dev/library/ssl.html#ssl.SSLError (from http://docs.python.org/dev/library/ssl.html); unknown archive format: .html
+    Skipping link http://docs.python.org/dev/library/socket.html#socket.error (from http://docs.python.org/dev/library/ssl.html); unknown archive format: .html
+    Skipping link http://docs.python.org/dev/library/exceptions.html#exceptions.IOError (from http://docs.python.org/dev/library/ssl.html); unknown archive format: .html
+    Skipping link http://docs.python.org/dev/library/ssl.html#ssl.wrap_socket (from http://docs.python.org/dev/library/ssl.html); unknown archive format: .html
+    Skipping link http://docs.python.org/dev/library/ssl.html#ssl-certificates (from http://docs.python.org/dev/library/ssl.html); unknown archive format: .html
+    Skipping link http://docs.python.org/dev/library/ssl.html#ssl.CERT_NONE (from http://docs.python.org/dev/library/ssl.html); unknown archive format: .html
+    Skipping link http://docs.python.org/dev/library/ssl.html#ssl.CERT_OPTIONAL (from http://docs.python.org/dev/library/ssl.html); unknown archive format: .html
+    Skipping link http://docs.python.org/dev/library/ssl.html#ssl.CERT_REQUIRED (from http://docs.python.org/dev/library/ssl.html); unknown archive format: .html
+    Skipping link http://www.openssl.org/docs/apps/ciphers.html#CIPHER_LIST_FORMAT (from http://docs.python.org/dev/library/ssl.html); unknown archive format: .html
+    Skipping link http://docs.python.org/dev/library/ssl.html#ssl.SSLSocket.do_handshake (from http://docs.python.org/dev/library/ssl.html); unknown archive format: .html
+    Skipping link http://docs.python.org/dev/library/ssl.html#ssl.SSLSocket.read (from http://docs.python.org/dev/library/ssl.html); unknown archive format: .html
+    Skipping link http://docs.python.org/dev/library/constants.html#True (from http://docs.python.org/dev/library/ssl.html); unknown archive format: .html
+    Skipping link http://docs.python.org/dev/library/constants.html#False (from http://docs.python.org/dev/library/ssl.html); unknown archive format: .html
+    Skipping link http://docs.python.org/dev/library/ssl.html#ssl.RAND_status (from http://docs.python.org/dev/library/ssl.html); unknown archive format: .html
+    Skipping link http://docs.python.org/dev/library/ssl.html#ssl.RAND_egd (from http://docs.python.org/dev/library/ssl.html); unknown archive format: .html
+    Skipping link http://docs.python.org/dev/library/ssl.html#ssl.RAND_add (from http://docs.python.org/dev/library/ssl.html); unknown archive format: .html
+    Skipping link http://egd.sourceforge.net/ (from http://docs.python.org/dev/library/ssl.html); not a file
+    Skipping link http://prngd.sourceforge.net/ (from http://docs.python.org/dev/library/ssl.html); not a file
+    Skipping link http://tools.ietf.org/html/rfc1750.html (from http://docs.python.org/dev/library/ssl.html); unknown archive format: .html
+    Skipping link http://docs.python.org/dev/library/ssl.html#ssl.cert_time_to_seconds (from http://docs.python.org/dev/library/ssl.html); unknown archive format: .html
+    Skipping link http://docs.python.org/dev/library/ssl.html#ssl.get_server_certificate (from http://docs.python.org/dev/library/ssl.html); unknown archive format: .html
+    Skipping link http://docs.python.org/dev/library/ssl.html#ssl.DER_cert_to_PEM_cert (from http://docs.python.org/dev/library/ssl.html); unknown archive format: .html
+    Skipping link http://docs.python.org/dev/library/ssl.html#ssl.PEM_cert_to_DER_cert (from http://docs.python.org/dev/library/ssl.html); unknown archive format: .html
+    Skipping link http://docs.python.org/dev/library/ssl.html#ssl.PROTOCOL_SSLv2 (from http://docs.python.org/dev/library/ssl.html); unknown archive format: .html
+    Skipping link http://docs.python.org/dev/library/ssl.html#ssl.PROTOCOL_SSLv23 (from http://docs.python.org/dev/library/ssl.html); unknown archive format: .html
+    Skipping link http://docs.python.org/dev/library/ssl.html#ssl.PROTOCOL_SSLv3 (from http://docs.python.org/dev/library/ssl.html); unknown archive format: .html
+    Skipping link http://docs.python.org/dev/library/ssl.html#ssl.PROTOCOL_TLSv1 (from http://docs.python.org/dev/library/ssl.html); unknown archive format: .html
+    Skipping link http://docs.python.org/dev/library/ssl.html#ssl.OPENSSL_VERSION (from http://docs.python.org/dev/library/ssl.html); unknown archive format: .html
+    Skipping link http://docs.python.org/dev/library/ssl.html#ssl.OPENSSL_VERSION_INFO (from http://docs.python.org/dev/library/ssl.html); unknown archive format: .html
+    Skipping link http://docs.python.org/dev/library/ssl.html#ssl.OPENSSL_VERSION_NUMBER (from http://docs.python.org/dev/library/ssl.html); unknown archive format: .html
+    Skipping link http://docs.python.org/dev/library/ssl.html#sslsocket-objects (from http://docs.python.org/dev/library/ssl.html); unknown archive format: .html
+    Skipping link http://docs.python.org/dev/library/ssl.html#ssl.SSLSocket.write (from http://docs.python.org/dev/library/ssl.html); unknown archive format: .html
+    Skipping link http://docs.python.org/dev/library/ssl.html#ssl.SSLSocket.getpeercert (from http://docs.python.org/dev/library/ssl.html); unknown archive format: .html
+    Skipping link http://docs.python.org/dev/library/stdtypes.html#dict (from http://docs.python.org/dev/library/ssl.html); unknown archive format: .html
+    Skipping link http://tools.ietf.org/html/rfc3280.html (from http://docs.python.org/dev/library/ssl.html); unknown archive format: .html
+    Skipping link http://docs.python.org/dev/library/constants.html#None (from http://docs.python.org/dev/library/ssl.html); unknown archive format: .html
+    Skipping link http://docs.python.org/dev/library/ssl.html#ssl.SSLSocket.cipher (from http://docs.python.org/dev/library/ssl.html); unknown archive format: .html
+    Skipping link http://docs.python.org/dev/library/ssl.html#ssl.SSLSocket.unwrap (from http://docs.python.org/dev/library/ssl.html); unknown archive format: .html
+    Skipping link http://docs.python.org/dev/library/ssl.html#certificates (from http://docs.python.org/dev/library/ssl.html); unknown archive format: .html
+    Skipping link http://tools.ietf.org/html/rfc1422.html (from http://docs.python.org/dev/library/ssl.html); unknown archive format: .html
+    Skipping link http://www.cacert.org/index.php?id=3 (from http://docs.python.org/dev/library/ssl.html); unknown archive format: .php
+    Skipping link http://www.thawte.com/roots/ (from http://docs.python.org/dev/library/ssl.html); not a file
+    Skipping link http://www.verisign.com/support/roots.html (from http://docs.python.org/dev/library/ssl.html); unknown archive format: .html
+    Skipping link http://www.PositiveSSL.com/ssl-certificate-support/cert_installation/UTN-USERFirst-Hardware.crt (from http://docs.python.org/dev/library/ssl.html); unknown archive format: .crt
+    Skipping link http://www.geotrust.com/resources/root_certificates/index.asp (from http://docs.python.org/dev/library/ssl.html); unknown archive format: .asp
+    Skipping link http://tools.ietf.org/html/rfc4158.html (from http://docs.python.org/dev/library/ssl.html); unknown archive format: .html
+    Skipping link http://docs.python.org/dev/library/ssl.html#examples (from http://docs.python.org/dev/library/ssl.html); unknown archive format: .html
+    Skipping link http://docs.python.org/dev/library/ssl.html#testing-for-ssl-support (from http://docs.python.org/dev/library/ssl.html); unknown archive format: .html
+    Skipping link http://docs.python.org/dev/library/ssl.html#client-side-operation (from http://docs.python.org/dev/library/ssl.html); unknown archive format: .html
+    Skipping link http://docs.python.org/dev/library/ssl.html#server-side-operation (from http://docs.python.org/dev/library/ssl.html); unknown archive format: .html
+    Skipping link http://docs.python.org/dev/library/socket.html#module-socket (from http://docs.python.org/dev/library/ssl.html); unknown archive format: .html
+    Skipping link http://old.pseudonym.org/ssl/wwwj-index.html (from http://docs.python.org/dev/library/ssl.html); unknown archive format: .html
+    Skipping link http://www.ietf.org/rfc/rfc1422 (from http://docs.python.org/dev/library/ssl.html); not a file
+    Skipping link http://www.ietf.org/rfc/rfc1750 (from http://docs.python.org/dev/library/ssl.html); not a file
+    Skipping link http://www.ietf.org/rfc/rfc3280 (from http://docs.python.org/dev/library/ssl.html); not a file
+    Skipping link http://docs.python.org/dev/contents.html (from http://docs.python.org/dev/library/ssl.html); unknown archive format: .html
+    Skipping link http://docs.python.org/dev/bugs.html (from http://docs.python.org/dev/library/ssl.html); unknown archive format: .html
+    Skipping link http://docs.python.org/dev/_sources/library/ssl.txt (from http://docs.python.org/dev/library/ssl.html); unknown archive format: .txt
+    Skipping link http://www.python.org/psf/donations/ (from http://docs.python.org/dev/library/ssl.html); not a file
+    Skipping link http://sphinx.pocoo.org/ (from http://docs.python.org/dev/library/ssl.html); not a file
+  Downloading ssl-1.15.tar.gz
+  Downloading from URL http://pypi.python.org/packages/source/s/ssl/ssl-1.15.tar.gz#md5=81ea8a1175e437b4c769ae65b3290e0c (from http://pypi.python.org/simple/ssl/)
+  Running setup.py egg_info for package ssl
+    looking for /usr/include/openssl/ssl.h
+    looking for /usr/include/krb5.h
+    running egg_info
+    creating pip-egg-info/ssl.egg-info
+    writing pip-egg-info/ssl.egg-info/PKG-INFO
+    writing top-level names to pip-egg-info/ssl.egg-info/top_level.txt
+    writing dependency_links to pip-egg-info/ssl.egg-info/dependency_links.txt
+    writing manifest file 'pip-egg-info/ssl.egg-info/SOURCES.txt'
+    warning: manifest_maker: standard file '-c' not found
+    reading manifest file 'pip-egg-info/ssl.egg-info/SOURCES.txt'
+    writing manifest file 'pip-egg-info/ssl.egg-info/SOURCES.txt'
+Installing collected packages: ssl
+  Running setup.py install for ssl
+    Running command /usr/local/bin/python2.5 -c "import setuptools; __file__='/home/sjphoto/webapps/sjphoto_wsgi/sjphoto/build/ssl/setup.py'; execfile('/home/sjphoto/webapps/sjphoto_wsgi/sjphoto/build/ssl/setup.py')" install --single-version-externally-managed --record /tmp/pip-Ie9_ho-record/install-record.txt --install-headers /home/sjphoto/webapps/sjphoto_wsgi/sjphoto/lib/include
+    looking for /usr/include/openssl/ssl.h
+    looking for /usr/include/krb5.h
+    running install
+    running build
+    running build_py
+    creating build
+    creating build/lib.linux-i686-2.5
+    creating build/lib.linux-i686-2.5/ssl
+    copying ssl/__init__.py -> build/lib.linux-i686-2.5/ssl
+    running build_ext
+    building 'ssl._ssl2' extension
+    creating build/temp.linux-i686-2.5
+    creating build/temp.linux-i686-2.5/ssl
+    gcc -pthread -fno-strict-aliasing -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -I./ssl/2.5.1 -I/usr/local/include/python2.5 -c ssl/_ssl2.c -o build/temp.linux-i686-2.5/ssl/_ssl2.o
+    gcc -pthread -shared build/temp.linux-i686-2.5/ssl/_ssl2.o -L/usr/local/lib -lssl -lcrypto -lpython2.5 -o build/lib.linux-i686-2.5/ssl/_ssl2.so
+    running install_lib
+    creating /home/sjphoto/lib/python2.5/ssl
+    copying build/lib.linux-i686-2.5/ssl/__init__.py -> /home/sjphoto/lib/python2.5/ssl
+    copying build/lib.linux-i686-2.5/ssl/_ssl2.so -> /home/sjphoto/lib/python2.5/ssl
+    byte-compiling /home/sjphoto/lib/python2.5/ssl/__init__.py to __init__.pyc
+    running install_data
+    copying test/test_ssl.py -> /usr/local/lib/python2.5/test
+    error: /usr/local/lib/python2.5/test/test_ssl.py: Permission denied
+    Complete output from command /usr/local/bin/python2.5 -c "import setuptools; __file__='/home/sjphoto/webapps/sjphoto_wsgi/sjphoto/build/ssl/setup.py'; execfile('/home/sjphoto/webapps/sjphoto_wsgi/sjphoto/build/ssl/setup.py')" install --single-version-externally-managed --record /tmp/pip-Ie9_ho-record/install-record.txt --install-headers /home/sjphoto/webapps/sjphoto_wsgi/sjphoto/lib/include:
+    looking for /usr/include/openssl/ssl.h
+
+looking for /usr/include/krb5.h
+
+running install
+
+running build
+
+running build_py
+
+creating build
+
+creating build/lib.linux-i686-2.5
+
+creating build/lib.linux-i686-2.5/ssl
+
+copying ssl/__init__.py -> build/lib.linux-i686-2.5/ssl
+
+running build_ext
+
+building 'ssl._ssl2' extension
+
+creating build/temp.linux-i686-2.5
+
+creating build/temp.linux-i686-2.5/ssl
+
+gcc -pthread -fno-strict-aliasing -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -I./ssl/2.5.1 -I/usr/local/include/python2.5 -c ssl/_ssl2.c -o build/temp.linux-i686-2.5/ssl/_ssl2.o
+
+gcc -pthread -shared build/temp.linux-i686-2.5/ssl/_ssl2.o -L/usr/local/lib -lssl -lcrypto -lpython2.5 -o build/lib.linux-i686-2.5/ssl/_ssl2.so
+
+running install_lib
+
+creating /home/sjphoto/lib/python2.5/ssl
+
+copying build/lib.linux-i686-2.5/ssl/__init__.py -> /home/sjphoto/lib/python2.5/ssl
+
+copying build/lib.linux-i686-2.5/ssl/_ssl2.so -> /home/sjphoto/lib/python2.5/ssl
+
+byte-compiling /home/sjphoto/lib/python2.5/ssl/__init__.py to __init__.pyc
+
+running install_data
+
+copying test/test_ssl.py -> /usr/local/lib/python2.5/test
+
+error: /usr/local/lib/python2.5/test/test_ssl.py: Permission denied
+
+----------------------------------------
+Command /usr/local/bin/python2.5 -c "import setuptools; __file__='/home/sjphoto/webapps/sjphoto_wsgi/sjphoto/build/ssl/setup.py'; execfile('/home/sjphoto/webapps/sjphoto_wsgi/sjphoto/build/ssl/setup.py')" install --single-version-externally-managed --record /tmp/pip-Ie9_ho-record/install-record.txt --install-headers /home/sjphoto/webapps/sjphoto_wsgi/sjphoto/lib/include failed with error code 1
+Exception information:
+Traceback (most recent call last):
+  File "/home/sjphoto/lib/python2.5/pip-0.6.3-py2.5.egg/pip/basecommand.py", line 115, in main
+    self.run(options, args)
+  File "/home/sjphoto/lib/python2.5/pip-0.6.3-py2.5.egg/pip/commands/install.py", line 157, in run
+    requirement_set.install(install_options)
+  File "/home/sjphoto/lib/python2.5/pip-0.6.3-py2.5.egg/pip/req.py", line 1165, in install
+    requirement.install(install_options)
+  File "/home/sjphoto/lib/python2.5/pip-0.6.3-py2.5.egg/pip/req.py", line 533, in install
+    cwd=self.source_dir, filter_stdout=self._filter_install, show_stdout=False)
+  File "/home/sjphoto/lib/python2.5/pip-0.6.3-py2.5.egg/pip/__init__.py", line 207, in call_subprocess
+    % (command_desc, proc.returncode))
+InstallationError: Command /usr/local/bin/python2.5 -c "import setuptools; __file__='/home/sjphoto/webapps/sjphoto_wsgi/sjphoto/build/ssl/setup.py'; execfile('/home/sjphoto/webapps/sjphoto_wsgi/sjphoto/build/ssl/setup.py')" install --single-version-externally-managed --record /tmp/pip-Ie9_ho-record/install-record.txt --install-headers /home/sjphoto/webapps/sjphoto_wsgi/sjphoto/lib/include failed with error code 1
