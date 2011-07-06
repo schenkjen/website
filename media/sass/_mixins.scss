@@ -1,0 +1,37 @@
+@mixin rounded ( $radius ){
+  -moz-border-radius:$radius;
+  -webkit-border-radius:$radius;
+  -o-border-radius:$radius;
+  -ie-border-radius:$radius;
+  border-radius:$radius;
+}
+
+@import 'compass/css3';
+
+/**
+ * Add a background gradient to a selector.
+ *
+ * @param {color} $bg-color The base color of the gradient.
+ * @param {string} [$type=$base-gradient] The style of the gradient, one of five pre-defined options: matte, bevel, glossy, recessed, or flat.
+ *
+ * @example
+ * .my-element {
+ *   @include background-gradient(green, 'recessed')
+ * }
+ */
+@mixin background-gradient($bg-color, $type: $base-gradient) {
+  background-color: $bg-color;
+  @if $include-highlights {
+    @if $type == bevel {
+      @include background-image(linear-gradient(color_stops(lighten($bg-color, 30%), lighten($bg-color, 15%) 2%, lighten($bg-color, 8%) 30%, $bg-color 65%, darken($bg-color, 10%))));
+    } @else if $type == glossy {
+      @include background-image(linear-gradient(color_stops(lighten($bg-color, 15%), lighten($bg-color, 5%) 50%, $bg-color 51%, darken($bg-color, 5%))));
+    } @else if $type == recessed {
+      @include background-image(linear-gradient(color_stops(darken($bg-color, 10%), darken($bg-color, 5%) 10%, $bg-color 65%, lighten($bg-color, .5%))));
+    } @else if $type == matte {
+      @include background-image(linear-gradient(color_stops(lighten($bg-color, 30%), lighten($bg-color, 7%) 2%, darken($bg-color, 7%))));
+    } @else {
+      background-image: none;
+    }
+  }
+}

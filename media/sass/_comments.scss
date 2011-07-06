@@ -1,0 +1,102 @@
+.comment-name{
+    background-repeat: repeat-y;
+    background-position: left center;
+    margin-top:6px;
+    margin-bottom: 4px;
+    padding-left: 4px;
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    font-size: 0.9em;
+    color: #FFF;          
+}
+#comment-form fieldset {
+  margin-top: 6px;
+  border-top-style: none;
+  border-right-style: none;
+  border-bottom-style: none;
+  border-left-style: none;
+  background-image: url(img/trans-bg-50.png);
+  -moz-border-radius:12px;
+  -webkit-border-radius:12px;
+}
+#comment-form fieldset textarea {
+  width:98.999%;
+  height:10em;
+}
+#comments{
+   @extend .p_all-20;
+   @extend .mt-8;
+   @include rounded(20px);
+   .comment-wrapper {
+    background-image: url(img/seperator-horiz-760.png);
+    background-repeat: no-repeat;
+    background-position: center bottom;
+  }
+  .plain{
+    .comment-day {
+      font-family: "Arial Black", Gadget, sans-serif;
+      font-size: 3em;
+      color: #666;
+      margin-top: -6px;
+    }
+    .comment-month {
+      font-family: "Arial Black", Gadget, sans-serif;
+      font-size: 1em;
+      color: #FFF;
+      @extend .pl-4;
+      @extend .pb-4;
+    }      
+  }
+  .author{
+    .comment-day {
+      font-family: "Arial Black", Gadget, sans-serif;
+      font-size: 3em;
+      color: #756187;
+      margin-top: -6px;
+    }
+    .comment-month {
+      font-family: "Arial Black", Gadget, sans-serif;
+      font-size: 1em;
+      color: #FFF;
+      @extend .pl-4;
+      @extend .pb-4;
+    }      
+  }
+  .comment{
+    &.plain{
+      background-image: url(img/trans-bg-25.png);
+      background-repeat: repeat;
+       .name {
+        @extend .comment-name;
+        background-image: url(img/comments_names_plain.png);
+      }    
+      &.alt {
+        background-image: url(img/trans-bg-75.png);
+        background-repeat: repeat;
+      }
+    }
+    &.author{
+      background-image: url(img/transpurple-bg-35.png);
+      background-repeat: repeat;
+      .name {
+        @extend .comment-name;
+        background-image: url(img/comments_names_owner.png);
+      }    
+      .text {
+        background-image: url(img/sj-logo-comments.png);
+        background-repeat: no-repeat;
+        background-position: right bottom;
+        padding-right: 54px;
+      }        
+    }
+    
+    .text {
+      background-image: url(img/quote-end.png);
+      background-repeat: no-repeat;
+      background-position: right bottom;
+      padding-top:15px;
+      padding-bottom: 15px;
+      @extend .pr-4;
+      @extend .mb-4;
+    }    
+  }
+}

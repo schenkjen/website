@@ -1,0 +1,95 @@
+/*      CONTESTS    */
+.contest-photo{
+  @extend .fl;
+  @extend .p_all-6;
+  @xextend .mb-4;
+}
+/*      MESSAGES    */
+
+#messages{
+  h1{
+    @extend .trans50;
+    font-family:"Times New Roman", Times, serif;
+    font-size:24px;  
+    padding:12px 8px;
+  }
+  fieldset{border:none;}
+  ul{
+    
+    &#menubar{
+      @extends .p_all-8;
+    }
+  }
+  
+  #menubar{
+    li{
+      display:inline;
+      @extend .mr-10;
+    }
+    a{
+      color:$sjred;
+      &.inbox{padding-left:25px; background:url(img/email.png) no-repeat left -14px;}
+      &.compose{padding-left:25px; background:url(img/email.png) no-repeat left 3px;}
+      &.sent{padding-left:25px; background:url(img/email.png) no-repeat left -30px;}
+      &.trash{padding-left:25px; background:url(img/email.png) no-repeat left -47px;}
+    }
+  }
+}
+
+
+
+ul.messages input, ul.messages textarea{width:99.999%}
+table{
+  &.messages{
+    @extend .width100;
+    
+    a{
+      color:$sjred;
+    }
+    
+    thead{
+      tr{
+        background:url(img/trans-bg-75.png) repeat;
+        &.alt{background:url(img/trans-bg-50.png) repeat;}
+        &:hover{background:url(img/transpurple-bg-25.png) repeat;}
+        
+        td{
+          @extend .p_all-10;
+        }
+      }
+    }
+    
+    th{
+      @extend .p_all-4;
+      font-family:"Trebuchet MS"; 
+      font-size:1.3em; 
+      font-weight:bolder; 
+      color:#FFF; 
+      text-align:center;
+    }
+    tbody{
+      tr{
+        background:url(img/trans-bg-25.png) repeat;
+        
+        td{
+          @extend .p_all-10;
+          text-align:center;
+        }
+        &.alt{background:url(img/trans-bg-50.png) repeat;}
+        &:hover{background:url(img/transpurple-bg-25.png) repeat;}
+      }
+    }
+  }
+} 
+dl.message-headers dd{
+  background:url(img/trans-bg-25.png) repeat; 
+  @extend .p_all-8;
+  @extend .mb-4; 
+  border:1px solid #0D0D0D;
+  color:#FFF;
+}
+
+table.messages tbody tr{background:url(img/trans-bg-25.png) repeat; text-align:center;}
+table.messages tbody tr td{padding:10px;}
+table.messages tbody tr.alt{background:url(img/trans-bg-50.png) repeat;}
+table.messages tbody tr:hover{background:url(img/transpurple-bg-25.png) repeat;}

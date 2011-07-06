@@ -1,0 +1,160 @@
+html{
+   background:#222;
+   display:block;
+   @include min-height(1024px)
+}
+body {background:$sj-bg-color;  font-size:small; color:#ccc; font-family:"Trebuchet MS", Arial, Helvetica, sans-serif; min-height:1024px;}
+
+a{
+  text-decoration:none;
+  color:#999;
+  &:hover{
+    color:#FFF !important; 
+  } 
+}
+
+h1{
+  font-family:"Arial Black", Tahoma, Verdana, Helvetica, sans-serif; 
+  font-size:2em;
+  color:#FFF;
+  
+  a{
+    color:#FFF !important;
+    &:hover{
+      color:#15A555 !important;
+    }
+  }
+}
+
+h2{color:#FFF; font-size:20px; font-weight:bold;}
+h3{font-size:1.4em; color:$sjblue; text-transform:capitalize; font-variant:small-caps; border-bottom:1px solid #333;}
+h4{font-size:1.2em;font-weight:bold;color:$sjred;}
+h5{}
+h6{}
+strong, b{font-weight:bolder;}
+/*    GENERAL PAGE STYLES   */
+#container{background:#222 url(img/ornate_bg_element.png) repeat top left;  position:relative; width:100%;/*max-width:1600px;*/ margin:0 auto;min-height:1024px;}
+/*
+#shadowbox .gradient-grey { background-image: url(img/gradient_bg-grey.png);background-repeat: repeat-y;background-position: center top;border-top-width: 1px;border-bottom-width: 1px;border-top-style: solid;border-bottom-style: solid;  border-top-color: #333; border-bottom-color: #333;}
+*/
+#shadowbox .gradient-grey { 
+  border-top-width: 1px;border-bottom-width: 1px;
+  border-top-style: solid;
+  border-bottom-style: solid; 
+  border-top-color: #333; 
+  border-bottom-color: #333;
+  background: #050505;
+  @include background-image(linear-gradient(left, #050505 5%, #333333 50%, #050505 95%));
+  @include filter-gradient(#050505, #151515, horizontal)
+  //background: -moz-linear-gradient(left, #050505 5%, #333333 50%, #050505 95%);
+ // background: -webkit-gradient(linear, left top, right top, color-stop(5%,#050505), color-stop(50%,#333333), color-stop(95%,#050505));
+  //filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#050505', endColorstr='#050505',GradientType=1 ); 
+  //"progid:DXImageTransform.Microsoft.gradient( startColorstr='#050505', endColorstr='#050505',GradientType=1 )";
+}
+.centered-element{ margin-left:auto;margin-right:auto;}
+
+#wrapper{
+  .wrap960{
+    @extend .centered-element;
+    width:960px;
+  }
+  
+  .wrap1080{
+    width:1080px;
+    @extend .centered-element;
+  }
+  
+  .smallbox{
+    width:400px;
+  }
+}
+#max-overlay {
+  background-image: url(img/trans-overlay2500.png);
+  background-repeat: repeat-y;
+  background-position: center top; 
+  @include min-height(1024px)
+}
+
+#shadowbox .shadow-wrap {width: 1000px;margin-top: 0px;margin-right: auto;margin-bottom: 0px;margin-left: auto;}
+#shadowbox #shadowup {background-image: url(img/trans-shadow-up.png);background-repeat: no-repeat;background-position: center bottom;height: 50px;}
+#shadowbox #shadowdown {background-image: url(img/trans-shadow-down.png);background-repeat: no-repeat;background-position: center top;height: 50px;}
+#shadowbox #shadowup-light {background-image: url(img/trans-shadow-up-light.png);background-repeat: no-repeat;background-position: center bottom; height:50px;}
+#shadowbox #shadowdown-light {background-image: url(img/trans-shadow-down-light.png);background-repeat: no-repeat;background-position: center top;height:50px;}
+
+.dark_button{
+  @extend .p_all-6;
+  background-color:#333;
+  background-image:url(img/gamepicker_button_bg_dark.jpg);
+  background-position:left center;
+  background-repeat:repeat-x;
+  border:1px solid #000;
+  color:#CCC !important;
+  font:.8em "Trebuchet MS", Arial, Helvetica, sans-serif;
+  height:30px;
+  margin:0;
+
+  &:hover{
+     background-image:url(img/gamepicker_button_bg_dark_hover_alt.jpg);
+     text-decoration:underline; 
+     cursor:pointer;
+    }
+  }
+
+.dark_button_wrap{background:#333;padding:1px;}
+
+/*    LAUNCH PAD STYLES   */
+#sjpad_base {
+  padding:8px; 
+  background:url(img/trans-bg-50.png)repeat;
+  color:$sjred;
+  
+  li{
+    margin-bottom:8px;
+  }
+
+}
+
+
+#MenuBar1{ 
+  li{ 
+    a {
+        @extend .mb-2;
+        padding:3px 12px 0 8px;
+        border-left: 3px solid;
+        border-left-color:transparent;
+        
+        &:hover{
+           border-left:3px solid #CCC;
+        }
+        
+        &:active, &.on{
+          border-left:3px solid $sjred;
+        }
+     }
+     
+     ul li a {  
+       background-image: url(img/trans-bg-75.png);
+       background-repeat: repeat;
+       overflow: hidden;
+       color: #ccc;
+       @extend .pb-8;
+       
+       &:hover{
+        color:$sjred !important;
+       }
+     }
+  }
+}
+ul.MenuBarHorizontal{
+  li{
+      &.MenuBarItemIE{background:none;}
+      
+      ul{
+         li{
+          &.MenuBarItemIE{
+            background:url(img/trans-bg-75.png);
+          }
+        }
+      }
+   }
+}

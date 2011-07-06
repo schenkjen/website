@@ -1,0 +1,73 @@
+.tags a {color: $sjred;padding: 3px;}
+.entry {
+  border-bottom-width: 1px;
+  border-bottom-style: dashed;
+  border-bottom-color: #FFF;
+  position: relative;
+  @extend .ml-50;
+  a{
+    color:$sjred;
+    
+    &.comment-count { 
+      border-bottom-width: 1px;
+      border-bottom-style: dotted;
+      border-bottom-color: $sjred;
+    }
+    
+    &:hover{
+      color:#FFF;
+    }
+  }
+  p {
+    font-size: 0.9em;color: #CCC;
+    margin-bottom: 5px;
+    @extend .pl-30
+  }
+  
+  .calendar {
+    height: 128px;
+    width: 128px;
+    background-image: url(img/calendar.png);
+    background-repeat: no-repeat;
+    background-position: left top;
+    color: $sjred;
+    font-family: "Arial Black", Gadget, sans-serif;
+    font-size: 24px;
+    font-weight: bolder;
+    padding-top: 62px;
+    padding-left: 55px;
+    left:-100px;
+    top: 15px;
+    
+    .month {
+      font-size: 10px;
+      color: #FFF;
+    }
+    .date {
+      @extend .mt-4;
+      font-size: 24px;
+      color: #F30; 
+    }
+  }
+}
+ 
+#blog-nav a {color: $sjblue;font-size: small;}
+#blogrevisions{
+  @extend .fl;
+  width:22.999%;
+}
+#footer {
+  @extend .centered-element;
+  @extend .pt-10;
+  width: 70%;
+  text-align:center;
+  a {
+     margin-right: 5px;
+  }
+} 
+#blog_form ul li li {
+  display:inline;
+  label {
+    line-height:35px
+  }
+}

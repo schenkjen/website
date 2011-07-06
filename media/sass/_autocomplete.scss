@@ -1,0 +1,49 @@
+/*    AUTOCOMPLETER   */
+ul.autocompleter-choices {
+    position: absolute;
+    margin: 0;
+    padding: 4px;
+    list-style: none;
+/*    border: 1px solid #7c7c7c;
+    border-left-color: #c3c3c3;
+    border-right-color: #c3c3c3;
+    border-bottom-color: #ddd;*/
+  
+  background:url(img/trans-bg-75.png) repeat;
+    text-align: left;
+    font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+    z-index: 50;
+}
+
+ul.autocompleter-choices li {
+    position: relative;
+    margin: -2px 0 0 0;
+    padding: 0.5em 1.5em 0.5em 1em;
+    display: block;
+    float: none !important;
+    cursor: pointer;
+  border-bottom:1px dotted #222;
+    font-weight: normal;
+    white-space: nowrap;
+    font-size: 1em;
+    line-height: 1.5em;
+  background:url(img/trans-bg-75.png) repeat;
+}
+
+ul.autocompleter-choices li.autocompleter-selected {
+    background:url(img/transpurple-bg-25.png) repeat;
+    color: #fff;
+}
+
+ul.autocompleter-choices span.autocompleter-queried {
+    display: inline;
+    float: none;
+    font-weight: bold;
+  color:#99F;
+    margin: 0;
+    padding: 0;
+}
+
+ul.autocompleter-choices li.autocompleter-selected span.autocompleter-queried {
+    color: #09F;
+}

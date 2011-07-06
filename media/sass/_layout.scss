@@ -1,0 +1,81 @@
+
+//    GENERIC STYLES 
+.trans10{background:url(img/trans-bg-10.png) repeat;}
+.trans25{background:url(img/trans-bg-25.png) repeat;}
+.trans35{background:url(img/trans-bg-35.png) repeat;}
+
+.trans50{background:url(img/trans-bg-50.png) repeat;}
+.trans75{background:url(img/trans-bg-75.png) repeat;}
+.transgrey50{background:url(img/transgrey-bg-50.png) repeat;}
+.transpurple25{background:url(img/transpurple-bg-25.png) repeat;}
+
+.dn{display:none;}
+.db{display:block;}
+
+.red, .draft{color:$sjred;}
+.blue, .published,.archive{color:$sjblue;}
+.grey {color: #999;}
+.white{color:#FFF;}
+.bold{font-weight:bolder;}
+.italic{font-style:italic}
+.clearfloat{@include pie-clearfix}
+.cr{clear:right;visibility:hidden;}
+.cl{clear:left; visibility:hidden;}
+.pos-rel{position:relative;}
+.pos-abs{position:absolute;}
+.compact-text{line-height:13px; font-size:0.83em;}
+.small, .smoothAnchors{font-size:0.85em; color:#666 !important;}
+.rounded{-moz-border-radius:12px; -webkit-border-radius:12px;}
+.comptype{font-family:monospace, Courier; font-size:1em;}
+.draggable{cursor:move;}
+table.tbl-trans tr{border-bottom:1px solid transparent; border-top:1px solid transparent;}
+table.tbl-trans tr:hover{background:url(img/trans-bg-50.png) repeat; border-bottom:1px dotted #222 !important; border-top:1px dotted #222 !important;}
+
+/*
+ * Layout CSS Classes
+ */
+.w-30{width:30px;}
+.w-50{width:50px;}
+.width50px{width:50px;}
+.width110px{width:110px;}
+.width150px{width:150px;}
+.width-200px{width:200px;}
+.height100{height:100%;}
+
+
+@for $num from 1 through 10 {
+  .width#{$num * 10}{ width:($num * 10) - .001%;}
+  @if $num > 1 {
+    .width#{$num}5{width:($num *10 +5 ) - .001%}
+  }
+}
+.width33{width:32.999%;}
+.width63{width:63.999%;}
+.width66{width:65.999%;}
+.widthmax{width:100%;}
+.fl{
+  @include float-left;
+}
+.fr{
+  @include float-right;
+}
+
+.align-c{text-align:center;}
+.valign-c{ vertical-align:middle }
+
+@for $num from 1 through 30{
+  .pt-#{$num * 2}{padding-top:$num*2px}
+  .mt-#{$num * 2}{margin-top:$num*2px}
+  
+  .pr-#{$num * 2}{padding-right:$num*2px}
+  .mr-#{$num * 2}{margin-right:$num*2px}
+  
+  .pl-#{$num * 2}{padding-left:$num*2px}
+  .ml-#{$num * 2}{margin-left:$num*2px}
+  
+  .pb-#{$num * 2}{padding-bottom:$num*2px}
+  .mb-#{$num * 2}{margin-bottom:$num*2px}
+  
+  .p_all-#{$num * 2}{padding:$num*2px}
+  .m_all-#{$num * 2}{margin:$num*2px}
+}

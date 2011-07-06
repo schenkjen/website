@@ -1,0 +1,136 @@
+/*    FORM STYLES   */
+input{
+  @extend .p_all-2;
+  background-color:#111; 
+  color:#FFF; 
+  font-family:"Trebuchet MS";
+  margin-top:2px;
+
+  &.small-input{
+    width:150px!important;
+    line-height:12px!important;
+    border:none;
+    padding:5px;
+  }
+  
+}
+
+input[type=radio],input[type=checkbox]{ width:3%}
+
+fieldset {
+  padding: 6px;
+  border: 1px solid #333;
+  legend {
+    font-weight: bold; 
+    color: $sjblue;}
+  li {
+    textarea, input{
+      width: 99%;
+      background: #222;
+      color: #FFF;
+      text-indent:5px;
+      @include rounded(8px);
+      &:hover{
+        background-color:#444;
+      }
+      &:focus{
+        background-color:#ccc;
+        color:#000;
+      }
+    }
+ 
+    input{
+      height:35px;
+      &[type=submit]{
+        @extend .p_all-6;
+        background:url(img/button_gradient_white.jpg) repeat-x left center;
+        width:auto;
+        color:#333;
+        &:hover{
+          background:url(img/button_gradient_white_hover.jpg) repeat-x left center;
+          width:auto;
+        }
+      }
+    }
+  }
+  ul {
+    &.errorlist{
+      margin:0; 
+      background-color:$sjred; 
+      border:1px solid #c70c0c; 
+      padding:2px; 
+      color:#fff;
+    }
+    
+    li {
+      padding: 3px;margin-bottom: 2px;
+      
+      input {
+      
+        &.short-input {
+          width: 25px;
+        }
+      }
+      
+      select{
+        background-image: url(img/trans-bg-50.png);
+      }
+      
+      label {
+        color: $sjred;
+        font-weight: bold; 
+        vertical-align:top; 
+        height:20px      
+      }
+      
+      ul {
+        margin-left:15%;
+        
+        input {
+          @extend input[type=radio]               
+        }
+        
+        li{
+          display:inline;
+        }
+      }
+    }
+  }
+}
+
+.multi-input{
+  border:#222 1px solid;
+  width:99%;
+  background:#111;
+  @extend .p_all-4;
+  
+  input{ 
+    height:auto !important;
+  }
+}
+
+#search input[type=submit]{
+  @extend .p_all-6;
+  background:url(img/button_gradient_white.jpg) repeat-x left center;
+  width:auto;
+  color:#333;
+}
+#login_form li input[type=text],#login_form li input[type=password]{height:25px;}
+
+.multi-line input, .multi-input input:hover, .multi-input input:focus{
+  background-color:transparent !important;
+  color:#FFF;
+} 
+
+#multiline li{ margin-right:5px;}
+#multiline input.multiline,#multiline li.multiline{
+  display:inline;
+  @extend .fl;
+  @extend .mb-2;
+  @extend .p_all-4;
+
+  input.multiline{
+    border:none;background:transparent none
+  }
+}
+
