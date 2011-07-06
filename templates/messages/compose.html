@@ -1,0 +1,24 @@
+{% extends "messages/base.html" %} 
+{% load i18n %} 
+{% load inbox %}
+{% block shadowup-extra %}
+	<a href="/"><img class="pos-abs" style="left:5%; bottom:-5px;" src="{{ MEDIA_URL }}images/logo-red_sm.png"/></a>
+{% endblock %}
+{% block slab %} 
+<h1>{% trans "Compose Message"%}</h1>
+<ul id="menubar">
+    <li><a href="{% url messages_inbox %} " class="inbox">{% trans "Inbox" %} ({% inbox_count %})</a></li>
+    <li><a href="{% url messages_outbox %} " class="sent">{% trans "Sent Messages" %}</a></li>
+    <li><a href="{% url sjphoto_multi_compose %} " class="compose">{% trans "New Message" %}</a></li>
+    <li><a href="{% url messages_trash %} " class="trash">{% trans "Trash" %}</a></li>
+</ul>
+<div class="trans25 p_all-20"><form action="" method="post">
+	<fieldset>
+<ul class="messages">
+{{ form.as_ul }}
+</fieldset>
+</ul>
+<input type="submit" value="{% trans "Send" %} &raquo;"/>
+</form>
+</div>
+{% endblock %}

@@ -1,0 +1,35 @@
+{% extends 'content_base.html' %}
+{% load likeable_tags %}
+{% block wrap %}wrap1080{% endblock %}
+{% block slab %}
+	{% if contest.is_closed %}
+	<span class=" fr red">The conest is over</span>
+	{% else %}
+	<span class=" fr red">contest ends in: {{ contest.end_date|timeuntil }}</span>
+	{% endif %}
+	<h3 class="mb-4">{{contest.title|title}}</h3>
+	{% for photo in contest.photos.select_related %}
+		{% can_like_object photo %}
+		<div class="contest-photo">
+			<span class="fl pos-rel">
+				<div id="display-overlay"></div>
+				<img src="{{ photo.get_gallery_preview_url }}" />
+			</span>
+			<br />
+			{% if contest.is_closed %}
+			{% else %}
+                             {% if user.is_authenticated %}	
+				{% if can_vote %}
+				<a class="like blue" href="{% url likeables_like_object photo.get_ct_id, photo.pk %}">Like</a>
+				{% else %}
+				<a class="like red" href="{% url likeables_unlike_object photo.get_ct_id, photo.pk %}">Unlike</a>
+				{% endif %}
+                             {% else %}
+				<a class="blue" href="{% url sjphoto_login_user %}" id="ajaxlogin-{{ photo.pk %}">log in</a> to participate!
+                             {% endif %}
+			     
+			{% endif %}
+		</div>
+	{% endfor %}
+	<br class="cl" />
+{% endblock %}

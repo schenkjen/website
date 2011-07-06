@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block shadowup-extra %}
+<img class="fl pl-30" src="{{ MEDIA_URL }}images/logo-red_sm_alt.png"/>
+{% endblock %}
+{% block content %}
+      <div style="margin:-2px 0px">
+      	<a id="top" name="top"></a>
+        <div id="wrapper">
+          <div  class='{% block wrap %}wrap960{% endblock %}'>
+            <div id="{% block slabid %}{% endblock %}" class="p_all-10 rounded trans50 mt-2 mb-2 pos-rel clearfloat" style="{% block slabstyle %}{% endblock %}">
+            	{% block navbar %}{% endblock %}
+				{% block slab %}
+				
+				{% endblock %}
+          	</div>
+        </div>
+      </div>
+	</div>
+{% endblock %}

@@ -1,0 +1,24 @@
+{% extends 'content_base.html' %}
+{% load pagination_tags %}
+{% block wrap %}wrap1080{% endblock %}
+{% block slab %}
+	{% autopaginate object_list 12 %}
+	{% for object in object_list %}
+		<a href="{% url sjphoto_gallery_detail object.slug, object.pk %}" class="gallery-preview">
+		<div >
+			{% with object.photos.all|first as image %}
+			<div class="pos-abs pb-8 pt-8 trans75 width100" style="bottom:0;">
+				<h2 class='ml-8'>{{ object.title|upper }}</h2>
+			</div>
+			<img src="{{ image.gallery_preview.url }}" />	
+			{% endwith %}			
+		</div>
+		</a>
+	{% empty %}
+	<div>No albums yet!</div>
+	{% endfor %}	
+
+	<div class="blue">
+	{% paginate %}
+	</div>
+{% endblock %}

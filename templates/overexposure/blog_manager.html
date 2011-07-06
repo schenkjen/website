@@ -1,0 +1,46 @@
+{% extends "content_base.html" %}
+{% load pagination_tags %}
+{% block slab %}
+
+	<table cellspacing="2" cellpadding="2" class="tbl-trans">
+		<tbody>
+	{% for entry in blog.entry_set.select_related.all %}
+			<tr class="trans50">
+				<td class="width15px">&nbsp;</td>
+				<td colspan=="3">
+					<a href="{% url overexposure_entry_manage entry.slug entry.get_ct_id entry.pk %}"><h2 class="red">{{ entry.title|title }}</h2></a>
+				</td>
+			</tr>
+			<tr class="{% cycle 'trans10' 'transgrey50' %}">
+			<td class="width150px">
+				{% if entry.image %}
+					<img src="{{ entry.image.get_blogmanage_url }}" class="p_all-4"/>
+				{% else %}
+					<img src="{{ MEDIA_URL }}images/logo-red_sm.png"/>
+				{% endif %}
+			</td>
+			<td>
+				<div class="p_all-4">{{entry.get_html_content|safe|truncatewords_html:"50"}}</div>
+				<br class="clearfloat" />
+				<div class="trans50 p_all-6">
+					<div class="fr">
+						<a href="{{ entry.get_absolute_url }}" class="pl-6">preview</a>
+						<a href="{% url overexposure_entry_manage entry.slug entry.get_ct_id entry.pk %}" class="pl-6">manage</a>
+
+						<a href="{% url overexposure_delete_entry entry.pk, entry.slug %}" class="pl-6 red">delete</a>
+
+					</div>
+					<div class="fl">
+					<strong>status:</strong> <span class="{{ entry.get_status_display|lower}}">{{ entry.get_status_display|lower }}</span>
+					</div>
+					<br class="clearfloat" />
+				</div>
+			</td>
+	{% empty %}
+		<div>You need to write something first!</div>	
+		
+		</tr>
+	{% endfor %}
+		</tbody>
+	</table>
+{% endblock %}

@@ -1,0 +1,94 @@
+{% extends "barwrap-page.html" %}
+
+{% block htmltag %}class="height100"{% endblock %}
+{% block bodyclass %}height100{% endblock %}
+{% block containerclass %}height100{% endblock %}
+{% block overlayclass %}height100{% endblock %}
+{% block greybar %}
+            <div id="img-wrap">
+            {% block photo-info %}
+              <div id="img-info">
+                <ul>
+                  <li>
+                    <h4>Title</h4>
+                    <p>{title}</p>
+                  </li>
+                  <li>
+                    <h4>Date Taken</h4>
+                    <p>{date}</p>
+                  </li>
+                  <li>
+                    <h4>Camera</h4>
+                    <p>{camera}</p>
+                  </li>
+                  <li>
+                    <h4>Category</h4>
+                    <p>{category}</p>
+                  </li>
+                </ul>
+				{% endblock %}
+              </div>
+              <div class="frame-right pos-abs">&nbsp;</div>
+              <div class="frame-left pos-abs controlFrame">&nbsp;</div>
+              <div class="frame-top pos-abs"> <a href="/"><img class="pos-abs controlFrame" style="left:5%; bottom:-5px;" src="{{ MEDIA_URL }}images/logo-red_sm_alt.png"/></a>
+                <ul>
+                {% block lightbar %}
+                  <li> <a href="#">Design</a></li>
+                  <li> <a href="#">Portrait</a></li>
+                  <li> <a href="#" id="lightControl">Dim Lights</a></li>
+				  {% endblock %}
+                </ul>
+              </div>
+              <div class="frame-bottom pos-abs">
+                <div class="pos-rel"> 
+					<!--
+					<span class="fr mr-30 mt-4"> 
+						<img src="{{ MEDIA_URL }}images/arrow-right.png" alt="" width="40" height="35" id="arrowright" /> 
+					</span> 
+					<span class="fl ml-30 mt-4"> 
+						<img src="{{ MEDIA_URL }}images/arrow-left.png" alt="" width="40" height="35" id="arrowleft" /> 
+					</span>
+					-->
+                  <div  id="gallery-scroll">
+                    <ul>
+                    	{% for photo in gallery.photos.all %}
+                      <li>
+						<a href="{{ photo.feature.url }}" id="">
+							<img src="{{ photo.feature_thm.url }}" alt="" id="thumb-{{ photo.pk }}" rel="{% url sjphoto_ajax_exif_url photo.pk %}" />
+						</a>
+					 </li>
+					 	{% empty %}
+						{% endfor %}
+                    </ul>
+                  </div>
+                  <br class="clearfloat" />
+                </div>
+              </div>
+              <span id="description">
+              	{% block disply-img %}
+              	<img src="{}{image}}" id="display-img" class="display" style="visibility:hidden;opacity:0;" />
+				{% endblock %}
+			  </span> 
+			</div>
+{% endblock %}
+{% block extrascripts %}
+	<script type="text/javascript">
+		window.addEvent('domready', function(e){
+			
+			new SJPHOTO.GalleryBox({
+				
+				onExif:function(exif){
+					Log.log('Exif recieved');
+				},
+				onSelect:function(thumb){
+				},
+				onSwap:function(newImg){
+					Log.log(newImg);
+				}
+				,onReady:function( gallery, image ){
+					image.fade.delay(400, image, 'in');
+				}
+			});
+		});
+	</script>
+{% endblock %}

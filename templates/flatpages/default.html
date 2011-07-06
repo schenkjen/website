@@ -1,0 +1,12 @@
+{% extends 'content_base.html' %}
+{% block htmltag %}class="height100"{% endblock %}
+{% block bodyclass %}height100{% endblock %}
+{% block containerclass %}height100{% endblock %}
+{% block overlayclass %}height100{% endblock %}
+{% block navbar %}
+<h1 class="fl">Samanatha Joy Photography |</h1> <span class="fl red p_all-10 bold">{{ flatpage.title }} </span><br class="clearfloat" />
+{% endblock %}
+
+{% block slab %}
+{{ flatpage.content }}
+{% endblock %}

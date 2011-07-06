@@ -1,0 +1,71 @@
+{% extends 'content_base.html' %}
+{% load exif_tags %}
+{% block slabstyle %}z-index:501;{% endblock %}
+{% block slabid %}gallery-wrap{% endblock %}
+{% block slab %}
+                <h1 class="fl">{{ gallery.title|title }} |</h1>
+                <span class="fl red p_all-10 bold"> {{ gallery.created|date:"Y" }}</span> <br class="cl"  />
+                <div class="width30 fl" id="thumbbar"> 
+				{% for photo in gallery.photos.all %}
+				  <a href="{{ photo.gallery.url }}">
+				  	<img src="{{photo.feature_thm.url }}" width="40" height="40" id="thumb-{{ photo.pk }}" alt="title" class="gallerythumb" rel="{% url sjphoto_ajax_exif_url photo.pk %}"/>
+				  </a>
+				 {% endfor %}
+                </div>
+                <div class="pos-rel width66 fr mr-8 p_all-8 rounded trans50" id="image-holder" >
+                  <span id="description" class="rounded db pt-10 pb-10">
+					<div id="display-overlay"></div>
+					{% with gallery.photos.all|first as main %}
+					<img src="{{ main.gallery.url }} " id="display-img" class="display" />
+					{% endwith %}
+                  </span>
+                </div>
+				<br class="clearfloat" />
+{% endblock %}
+{% block extrascripts %}
+	<script type="text/javascript">
+		
+		window.addEvent('domready', function(e){
+			var gallerybox, fadequeue;
+			gallerybox = new SJPHOTO.GalleryBox({
+				autoShow:false
+				,onExif:function(exif){
+					Log.log('Exif recieved', exif);
+				},
+				onSelect:function(thumb){
+					Log.log('thumb', thumb);
+				},
+				onSwap:function(newImg){
+
+					var height = newImg.getSize().y;
+					
+					document.id('description').morph({
+						height:(height +5)
+					});
+					
+					newImg.fade.delay(550,newImg, 'in')
+					
+				}
+				,onReady: function( element, image ){
+					new Fx.Scroll(window,{
+					     duration:800
+						,fps:60
+					    ,transition:'quad:in:out'
+					}).start(0, 200)					
+					this.reveal.delay(800, this, [false, 0.5]);
+				}
+			});
+			
+			document.id('gallery-wrap').addEvents({
+				mouseenter: function( evt ){
+					$clear( fadequeue );
+					fadequeue = gallerybox.reveal.delay(400, gallerybox, [false, 0.5]);
+				}
+				,mouseleave: function( evt ){
+					$clear( fadequeue)
+					fadequeue = gallerybox.hide.delay(10, gallerybox);
+				}
+			})
+		});
+	</script>
+{% endblock %}

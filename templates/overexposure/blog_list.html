@@ -1,0 +1,86 @@
+{% extends "content_base.html" %}
+{%  load cache_comments %}
+{% load pagination_tags %}
+{% load generic_content %}
+{% load tagging_tags %}
+{% block title %}Overexposure: Samantha Joy Photography Blog{% endblock %}
+{% block feeds %}
+<link href="/feeds/blogs/" type="application/rss+xml" rel="alternate"/> 
+{% endblock %}
+{% block slab %}
+		
+              <div class="p_all-2" id="blog-wrap">
+          {% block blogside %}    	
+			<div class="fr align-l pl-4" style="width:25%">
+			<div class="mt-4">
+			{% get_latest_objects base.photo 15 as photolist %}
+			  <h4>Recent Photos</h4>
+			  {% for photo in photolist %}
+			  <img src="{{ photo.blogthumb.url }}" alt="{{ photo.title }}" width="40" height="40" id="image{{photo.pk}}" title="{{ photo.title }}"/>
+			  {% empty %}
+			  <div>no recent photos</div>
+			  {% endfor %} 
+			</div>	
+			<h4>Archives</h4>
+			{% for date in date_list %}
+				<a>{{ date|date:"F Y" }}</a>
+			{% empty %}
+			     <p>no archives :(</p>
+			{% endfor %}
+			</div>
+		{% endblock %}
+		{% block blogcontent %}
+		{% autopaginate object_list 10 %}
+              	{% for object in object_list %}
+				{% if forloop.first %}
+                <h1 class="fl">{{ object.blog.name }} |</h1>
+                <span class="fl red p_all-10 bold">{{ object.blog.tag_line }}</span> <br class="cl"  />
+				<div class="p_all-10 width66 entry">
+                  <div class="pos-abs calendar">
+                  	<div class="month pt-4">{{ object.created|date:"M" }}</div>
+                    <div class="date">{{ object.created|date:"d" }}</div>
+                  </div>
+                  <span class="fr compact-text">
+                  	{% get_cached_comment_count object as comment_count %}
+                  	<a href="{{ object.get_absolute_url }}#comments" class="comment-count">{{ comment_count }} comment{{ comment_count|pluralize:",s" }}</a>
+				  </span>
+                  <h2>{{ object.title|title }}</h2>
+				  {{ object.get_html_content|safe|truncatewords_html:"300" }} 
+				   <p><a href="{% url overexposure_entry_detail object.slug object.get_ct_id object.pk %}">read more...</a></p>
+                  <div class="tags mt-4 ml-30"> tags: 
+					{% tags_for_object object as tag_list %}
+					{% for tag in tag_list %}
+						<a href="{% url overexposure_entry_by_tag tag %}">{{ tag }}</a>
+					{% endfor %}
+				  </div>
+				 </div>
+				{% else %}
+                <div class="p_all-10 width66 entry">
+                  <div class="pos-abs calendar">
+                  	<div class="month pt-4">{{ object.created|date:"M" }}</div>
+                    <div class="date">{{ object.created|date:"d" }}</div>
+                  </div>
+				  {% get_cached_comment_count object as comment_count %}
+                  <span class="fr compact-text"><a href="{{ object.get_absolute_url }}#comments" class="comment-count">{{ comment_count }} comment{{ comment_count|pluralize:",s" }}</a></span>
+                  <h2>{{ object.title|title }}</h2>
+				  {{ object.get_html_content|safe|truncatewords_html:"300" }}
+				   <p><a href="{% url overexposure_entry_detail object.slug object.get_ct_id object.pk %}">read more...</a></p>
+                  <div class="tags mt-4 ml-30"> tags: 
+					{% tags_for_object object as tag_list %}
+					{% for tag in tag_list %}
+						<a href="{% url overexposure_entry_by_tag tag %}">{{ tag }}</a>
+					{% endfor %}				  
+				  </div>
+                </div><!-- END BLOG ENTRY-->
+				{% endif %}
+				{% empty %}
+				<div>No Blog Entries! </div>
+				{% endfor %}
+                <div class="width66 p_all-10" id="blog-nav">
+		    {% paginate %}
+                    <br class="clearfloat"  />
+                </div>
+                <br class="clearfloat"  />
+            {% endblock %}
+              </div>
+{% endblock %}

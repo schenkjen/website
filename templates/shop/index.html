@@ -1,0 +1,126 @@
+{% extends "shop/base.html" %}
+{% load i18n satchmo_category satchmo_google satchmo_util satchmo_currency satchmo_discounts app_plugins normalize_decimal %}
+{% load thumbnail %}
+{% block htmltag %}class="height100"{% endblock %}
+{% block bodyclass %}height100{% endblock %}
+{% block containerclass %}height100{% endblock %}
+{% block overlayclass %}height100{% endblock %}
+
+{% block wrap %}wrap960{%endblock %}
+{% block slab %}
+
+{% trans "Welcome to the shop." %}
+    <div id="sidebar-secondary">
+		{% block sidebar-secondary %}
+		<div>
+			{% satchmo_search_form %}
+		</div>
+		<div>
+			{% block sidebar %}
+			<h3>{% trans "Shop Categories" %}</h3>
+			{% block sidebar-categories %}
+			<div id="menu_container">
+                {% if category.id %}
+                    {% category_tree category.id %}
+                {% else %}
+                    {% if product.get_category %}
+                        {% category_tree product.get_category.id %}
+                    {% else %}
+                        {% category_tree %}
+                    {% endif %}
+                {% endif %}
+			</div>
+			{% endblock sidebar-categories %}
+			
+			{% block sidebar-secondary-bottom %}
+			{% plugin_point "sidebar_secondary_bottom" %}
+			{% endblock %}
+			{% endblock sidebar %}
+		</div>
+		{% endblock sidebar-secondary %}
+	</div>
+	
+	<div id="sidebar-primary">{# rightnav #}
+		{% block sidebar-primary %}
+		<h3>{% trans "Quick Links" %}</h3>
+		{% url satchmo_product_recently_added as recenturl %}
+		{% if recenturl %}<a href="{{ recenturl }}">{% trans "Recently Added" %}</a>{% endif %}
+		{% url satchmo_product_best_selling as popularurl %}
+		{% if popularurl %}<br/><a href="{{ popularurl }}">{% trans "Best Sellers" %}</a>{% endif %}
+		{% plugin_point "sidebar_links" %}
+
+	    <h3>{% trans "Account Information" %}</h3>
+	    {% if user.is_staff %}
+		<a href="{% url admin:index %}" target="blank">{% trans "Admin" %}</a><br/>
+		{% endif %}
+	    {% if user.is_authenticated %}
+		{% url satchmo_account_info as accounturl %}
+        {% if accounturl %}<a href="{{ accounturl }}" target="blank">{% trans "Account Details" %}</a><br/>{% endif %}
+        <a href="{{ logout_url }}?next={{request.path}}">{% trans "Log out" %}</a><br/>
+	    {% else %}
+        <a href="{{ login_url }}?next={{request.path}}">{% trans "Log in" %}</a><br/>
+	    {% endif %}
+
+		{% url satchmo_cart as carturl %}
+	    {% if carturl %}<a href="{{ carturl }}">{% trans "Cart" %}</a>{% endif %}
+
+	    {% if cart_count %}
+        ({{ cart_count|normalize_decimal }}{% if cart.total %} - {{ cart|discount_cart_total:sale|currency }}{% endif %})<br/>
+		{% url satchmo_checkout-step1 as checkouturl %}
+        {% if checkouturl %}<a href="{{ checkouturl }}">{% trans "Check out" %}</a>{% endif %}
+	    {% endif %}
+	
+		{% plugin_point "shop_sidebar_actions" %}
+    
+		{% url satchmo_contact as contact_url %}
+	    {% if contact_url %}<p><a href="{{ contact_url }}">{% trans "Contact Us" %}</a></p>{% endif %}
+
+
+		{% block sidebar-primary-bottom %}
+		{% plugin_point "shop_sidebar_primary" %}
+		{% endblock %}
+		{% endblock sidebar-primary %}
+	</div>
+	
+{% if all_products_list %}
+    <h4>{% trans "Featured Items" %}</h4>
+    {% for product in all_products_list %} 
+            <div class = "productImage">    
+           {% if product.main_image %}
+              <center>
+              {% thumbnail product.main_image.picture 85x85 as image %}
+              <a href="{{ product.get_absolute_url }}"><img src="{{ image }}" width="{{ image.width }}" height="{{ image.height }}" /></a>
+              </center>
+           {% endif %}     
+            <p><a href="{{ product.get_absolute_url }}">{{ product.translated_name }}</a></p>
+        </div>
+    {% endfor %}
+	<br class="clearfloat" />
+{% endif %}
+
+    {% if is_paginated %}
+    <div id = "pagination">
+    <ul>
+        {% if page_obj.has_previous %}
+            <li> <a href="{{shop_base}}/?page={{page_obj.previous_page_number}}">{% trans "Previous" %}</a> </li>
+        {% else %}
+            <li> {% trans "Previous" %} </li>
+        {% endif %}
+        {% for page_number in paginator.num_pages|template_range %}
+            {% ifequal page_number page_obj.number %}
+                <li class="currentpage">{{page_number}}</li>
+            {% else %}
+                <li> <a href="{{shop_base}}/?page={{page_number}}">{{page_number}}</a> </li>
+            {% endifequal %}
+        {% endfor %}
+        {% if page_obj.has_next %}
+            <li> <a href="{{shop_base}}/?page={{page_obj.next_page_number}}">{% trans "Next" %}</a></li>
+        {% else %}
+            <li> {% trans "Next" %} </li>
+        {% endif %}
+    </ul>
+    </div>
+    {% endif %}
+
+
+{% endblock %}

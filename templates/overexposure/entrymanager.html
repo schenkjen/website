@@ -1,0 +1,91 @@
+{% extends "overexposure/blog_detail.html" %}
+{% block stylesheets %}
+	<link href="{{ MEDIA_URL }}css/MooEditable.css" rel="stylesheet" media="screen"/>
+	<link href="{{ MEDIA_URL }}css/MooEditable.Extras.css" rel="stylesheet" media="screen"/>
+{% endblock %}
+{% block wrap %}wrap1080{% endblock %}
+{% block sidebar %}
+<div id="blogrevisions">
+<table class="messages">	
+	<thead>
+		<tr>
+			<th colspan="3">Revision History</th>
+		</tr>
+	</thead>
+	<tbody>
+{% for change in object.changes.all %}
+	
+	<tr class="{% cycle '' 'alt' %}">
+		<td>{{ change }}</td>
+		<td><a href="{% url overexposure_view_changes object.pk, change.revision %}">view</a></td>
+		<td>
+			{% ifnotequal object.current_version_number change.revision %}
+			<a href="{% url overexposure_revert_entry object.pk, change.revision %}">revert</a>
+			{% else %}
+			<span style="text-decoration:line-through;">revert</span>
+			{% endifnotequal %}
+		</td>
+	</tr>
+	
+{% empty %}
+	<tr>
+		<td>No changes :(</td>
+	</tr>
+{% endfor %}
+	</tbody>
+</table>
+</div>
+{% endblock %}
+			{% block maincontent %}
+                <h1 class="fl">{{ object.blog.name }} |</h1>
+                <span class="fl red p_all-10 bold">{{ object.blog.tag_line }}</span> <br class="cl"  />
+				{% if messages %}
+					<div>{{ message }}</div>
+				{% endif %}
+                <div class="p_all-10 width70 entry">
+                  <span class="fr compact-text"><a href="{% url overexposure_entry_edit object.slug object.get_ct_id object.pk %}" class="comment-count" id="js-edit-{{ object.pk }}">edit</a></span>
+                  <h2>{{ object.title|title }}</h2>
+				  <div id="wiki-blog-{{ object.pk }}">
+				  	{{ object.get_html_content|safe }}
+                  	<div class="tags mt-4 ml-30"> tags: 
+                  		{% comment %}
+						{% tags_for_object object as tag_list %}
+						{% for tag in tag_list %}
+							<a>{{ tag }}</a>
+						{% endfor %}
+						{% endcomment %}
+					</div>
+				  </div>
+                </div>
+			{% endblock %}		
+		{% block extrascripts %}
+		<script src="{{ MEDIA_URL }}js/editor/MooEditable.js" type="" ></script>
+		<script src="{{ MEDIA_URL }}js/editor/MooEditable.Extras.js" type="" ></script>
+		<script src="{{ MEDIA_URL }}js/editor/MooEditable.Photosearch.js" type="" ></script>
+  	  	<script src="{{ MEDIA_URL }}js/editor/MooEditable.Sjphotosearch.js" type="" ></script>
+		<script type="text/javascript">
+			window.addEvent('domready', function(e){
+				var em = new SJPHOTO.EditMode({
+					editorActions:'h2 h3 h4 p bold | insertunorderedlist insertorderedlist indent outdent | undo redo | sjphotosearch unlink | urlimage photosearch | toggleview ',
+					MEDIA_URL:'{{ MEDIA_URL }}',
+					wikiArea:'wiki-blog-',
+					editor_element:'id_content',
+					formURL:'{% url overexposure_entry_edit object.slug object.get_ct_id object.pk %}',
+					onBuildcomplete:function(e){
+						Log.log('editor Built');
+	                          new Autocompleter.Request.JSON('id_tags','/blog/search/tags/', {
+                              postVar:'q',
+                              selectMode:'type-ahead',
+                              multiple:true
+                          }); 						 
+					}
+				});
+				$$('a[id^=js-edit-]').each(function(el){
+					el.addEvent('click', function(evt){
+						evt.stop();
+						em.buildEditor();
+					});
+				});
+			});
+		</script>
+		{% endblock %}

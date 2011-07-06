@@ -1,0 +1,107 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" {% block htmltag %}{% endblock %}>
+{% load inbox %}
+	<head>
+		{% block meta %}{% endblock %}
+		<title>{% block title %}{% endblock %}</title>
+		<meta name="author" content="Eric Satterwhite" />
+		<meta name="description" content="Samantha Joy Photography, Elegant photography for Weddings, new borns, senior portraits and any occasion" />
+		<meta name="keywords" content="watertown, photography, wedding, baby, new born, senior, high school, artistic" />
+		<link href="{{ MEDIA_URL }}css/reset.css" rel="stylesheet" media="all" />
+		<link href="{{ MEDIA_URL }}css/sjbase.css" rel="stylesheet" media="screen" />
+		<link href="{{ MEDIA_URL }}css/MenuMatic.css" rel="stylesheet" media="screen" />
+		{% block stylesheets %}{% endblock %}
+		<script src="{{ MEDIA_URL }}js/mootools-1.2.5-core-yc.js" type="text/javascript"></script>
+		<script src="{{ MEDIA_URL }}js/Autocompleter.js" type="text/javascript"></script>		
+		<script src="{{ MEDIA_URL }}js/MenuMatic_0.68.3.js" type="text/javascript"></script>
+		{% block scripts %}{% endblock %}
+		{% block extrahead %}{% endblock %}
+		{% block feeds %}{% endblock %}
+	</head>
+	<body class="{% block bodyclass %}{% endblock %}">
+		<div id="container" class="{% block containerclass %}{% endblock %}">
+  			<div id="max-overlay" class="{% block overlayclass %}{% endblock %}">
+    			<div id="shadowbox" style="padding-top:150px;">
+      				<div class="shadow-wrap pos-rel" id="{% block shadowup %}shadowup{% endblock %}">
+      					{% block shadowup-extra %}{% endblock %}
+						<ul id="nav" class="MenuBarHorizontal">
+							  {% if user.is_staff %}
+							  <li><a href="/admin/">administration</a>
+							  	<ul>
+							  		<li><a href="{% url overexposure_main_blog_list %}">blog</a>
+										<ul>
+											<li><a href="{% url overexposure_admin_manage %}">manager</a></li>
+											<li><a href="{% url overexposure_admin_entry %}">new entry</a></li>
+										</ul>
+									</li>
+									
+							  	</ul>
+							  </li>
+						          {% endif %}
+		 			          <li><a href="{% url sjphoto_homepage %}" class="on">home</a></li>
+						<li><a href="{% url sjphoto_gallery_list %}">albums</a></li>
+						 <li><a href="{% url overexposure_main_blog_list %}">blog</a> </li>
+						<li><a href="/about/">about</a></li>
+						<li><a href="/contact/">contact</a></li>
+					          {% comment %}
+						  <li><a href="index.html" class="MenuBarItemSubmenu">galleries</a>
+					            <ul>
+					              <li><a href="#">portraits</a></li>
+					              <li><a href="#">abstract</a></li>
+					              <li><a href="#">wedding</a></li>
+					            </ul>
+					          </li>
+					          <li><a href="{% url overexposure_main_blog_list %}">blog</a> </li>
+					          <li><a href="about.html">about me</a></li>
+					          <li><a href="contact.html">contact</a></li>
+						  {% endcomment %}
+							  {% if user.is_anonymous %}
+							  <li><a href="{% url sjphoto_login_user %}" id="ajaxlogin-1">login</a></li>
+							  {% else %}
+							  <li><a href="contact.html">welcome, {{user.first_name|lower }}</a>
+							  	<ul>
+							  		<li><a href="{% url messages_inbox %}">mail</a>
+										<ul>
+											<li><a href="{% url messages_inbox %}">inbox({% inbox_count %})</a></li>
+											<li><a href="{% url sjphoto_multi_compose %}">compose</a></li>
+										</ul>
+									</li>
+							  		<li><a href="{% url sjphoto_logout_user %}">logout</a></li>
+							  	</ul>
+							  </li>
+							  {% endif %}
+					      </ul>
+					</div>
+						{% block content %}hello world{% endblock %}
+					<div class="shadow-wrap" id="{% block shadowdown %}shadowdown{% endblock %}">
+		              <div id="footer"> <a href="{% url sjphoto_homepage %}">home</a> <a href="{% url overexposure_main_blog_list %}">blog</a> <a href="/about/">about me</a> <a href="/contact/">contact</a> </div>				
+					</div>
+				</div>
+			</div>
+		</div>
+		<script src="{{ MEDIA_URL }}js/mootools-1.2.5.1-more.js" type="text/javascript"></script>
+		<script src="{{ MEDIA_URL }}js/sjbase.js" type="text/javascript"></script>
+		<script type="text/javascript">
+		    var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+		    document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+		</script>
+		<script type="text/javascript">
+		try {
+		    var pageTracker = _gat._getTracker("UA-8563059-2");
+		    pageTracker._setDomainName(".samanthajoyphotography.com");
+		    pageTracker._trackPageview();
+		} catch(err) {}</script>
+		<!-- Start Quantcast tag -->
+		<script type="text/javascript">
+		    _qoptions={
+		    qacct:"p-daeU6fyENAOCY"
+		};
+		</script>
+		<script type="text/javascript" src="http://edge.quantserve.com/quant.js"></script>
+		<noscript>
+        	    <img src="http://pixel.quantserve.com/pixel/p-daeU6fyENAOCY.gif" style="display: none;" border="0" height="1" width="1" alt="Quantcast"/>
+		</noscript>
+		<!-- End Quantcast tag -->
+		{% block extrascripts %}{% endblock %}
+	</body>
+</html>

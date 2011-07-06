@@ -1,0 +1,54 @@
+{% extends "gallerypage.html" %}
+{% load exif_tags %}
+{% load generic_content %}
+{% block title %}Samantha Joy Photography: Artistic photography for every occasion{% endblock %}
+{% block photo-info %}
+{% with gallery.photos.all|first as main %}
+  <div id="img-info">
+    <ul>
+      <li>
+      	{% with main.EXIF as exif %}
+        <h4>Title</h4>
+        <p id="title" class="exif">{{ main.title }}</p>
+      </li>
+      <li>
+        <h4>Date Taken</h4>
+        <p id="dateTaken" class='exif'>{{ main.date_taken|date:"b dS Y" }}</p>
+      </li>
+      <li>
+        <h4>Camera</h4>
+        <p id="imageModel" class="exif">{% exif main Image_Model %}</p>
+      </li>
+      <li>
+        <h4>Focal Length</h4>
+        <p id="focalLength" class="exif">{% exif main EXIF_FocalLength %}mm</p>
+      </li>
+      <li>
+        <h4>Flash Mode</h4>
+        <p id="flash" class="exif">{% exif main EXIF_Flash %}</p>
+      </li>
+      <li>
+        <h4>Exposure Time</h4>
+        <p id="exposureTime" class="exif">{% exif main EXIF_ExposureTime %}</p>
+      </li>
+      <li>
+        <h4>Resolution</h4>
+        <p id="resolution" class="exif">{% exif main EXIF_ExifImageLength %} x {% exif main EXIF_ExifImageWidth %}</p>
+      </li>
+    </ul>
+	{% endwith %}
+	{% endwith %}
+	{% endblock %}
+                {% block lightbar %}
+				{% for g in gallery_list %}
+					<li><a href="{% url sjphoto_feature_gallery_detail g.slug, g.pk %}">{{ g.title }}</a></li>
+				{% empty %}
+				{% endfor %}
+                  <li> <a href="#" id="lightControl">Lower Lights</a></li>
+				  {% endblock %}
+{% block disply-img %}
+	{% with gallery.photos.all|first as main %}
+	<div id="display-overlay"></div>
+	<img src="{{ main.feature.url }}" id="display-img" class="display" style="visibility:hidden;opacity:0;"/>
+	{% endwith %}
+{% endblock %}

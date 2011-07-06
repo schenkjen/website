@@ -1,0 +1,21 @@
+{% extends "messages/inbox.html" %} 
+{% load i18n %} 
+{% load inbox %}
+{% block messageheading %}{{ user.first_name }}'s Sent Messages{% endblock %} 
+{% block shadowup-extra %}
+	<a href="/"><img class="pos-abs" style="left:5%; bottom:-5px;" src="{{ MEDIA_URL }}images/logo-red_sm_alt.png"/></a>
+{% endblock %}
+{% block tablebody %}
+{% for message in message_list %} 
+    <tr>
+        <td>{{ message.recipient }}</td>
+        <td>
+        <a href="{{ message.get_absolute_url }}">{{ message.subject }}</a>
+        </td>
+        <td>{{ message.sent_at|date:_("DATETIME_FORMAT") }}</td>
+        <td><a href="{% url messages_delete message.id %}?next={% url messages_outbox %}">{% trans "delete" %}</a></td>
+    </tr>
+{% endfor %}
+    </tbody>
+</table>
+{% endblock %}

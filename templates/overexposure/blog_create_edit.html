@@ -1,0 +1,36 @@
+{% extends "overexposure/entrymanager.html" %}
+
+{% block maincontent %}
+    <h1 class="fl">{{ blog.name }} |</h1>
+    <span class="fl red p_all-10 bold">{{ blog.tag_line }}</span> <br class="cl"  />
+    <div class="p_all-10 width90 entry">
+   	 {% if object.title %}
+      <h2>{{ title|default_if_none:'' }}</h2>
+      {% else %}
+      <h2>New Entry</h2>
+      {% endif %}
+	  <div id="wiki-blog-{{ blog.pk }}">
+	  	<form action="" method="post" id="blog_form">
+	  		<fieldset>
+	  			<ul>
+	  				{{ form.as_ul }}
+					<li>
+						<a href="#" id="blog_save">save</a>
+					</li>
+	  			</ul>
+	  		</fieldset>
+	  	</form>
+	  </div>
+    </div>
+{% endblock %}
+		{% block extrascripts %}
+		{{ form.media }}
+		<script type="text/javascript">
+			window.addEvent('domready',function(){
+				$('blog_save').addEvent('click',function(e){
+					e.stop();
+					$('blog_form').submit();
+				});
+			});
+		</script>
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends "messages/base.html" %} 
+{% load i18n %} 
+{% load inbox %}
+{% block htmltag %}class="height100"{% endblock %}
+{% block bodyclass %}height100{% endblock %}
+{% block containerclass %}height100{% endblock %}
+{% block overlayclass %}height100{% endblock %}
+{% block shadowup-extra %}
+	<a href="/"><img class="pos-abs" style="left:5%; bottom:-5px;" src="{{ MEDIA_URL }}images/logo-red_sm_alt.png"/></a>
+	
+{% endblock %}
+{% block slab %}
+<h1>{% trans "View Message" %}</h1>
+<ul id="menubar">
+    <li><a href="{% url messages_inbox %} " class="inbox">{% trans "Inbox" %} ({% inbox_count %})</a></li>
+    <li><a href="{% url messages_outbox %} " class="sent">{% trans "Sent Messages" %}</a></li>
+    <li><a href="{% url sjphoto_multi_compose %} " class="compose">{% trans "New Message" %}</a></li>
+    <li><a href="{% url messages_trash %} " class="trash">{% trans "Trash" %}</a></li>
+</ul>
+<div class="trans35 p_all-10 comptype">
+<dl class="message-headers">
+    <dd><span class="red bold">{% trans "Subject" %}:&nbsp;</span><strong>{{ message.subject }}</strong></dd>
+    <dd><span class="red bold">{% trans "Sender" %}:&nbsp;</span>{{ message.sender }}</dd>
+    <dd><span class="red bold">{% trans "Date" %}:&nbsp; </span>{{ message.sent_at|date:_("DATETIME_FORMAT")}}</dd>
+    <dd><span class="red bold">{% trans "Recipient" %}:&nbsp;</span>{{ message.recipient }}</dd>
+</dl>
+<div class="trans50 p_all-10 mt-8">{{ message.body|linebreaksbr }}</div><br /><br />
+{% ifequal message.recipient.pk user.pk %}
+<a href="{% url messages_reply message.id %}" class="blue">{% trans "Reply" %}</a>
+{% endifequal %}
+<a href="{% url messages_delete message.id %}" class="red">{% trans "Delete" %}</a>
+</div>
+{% endblock %}

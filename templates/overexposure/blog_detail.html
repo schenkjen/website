@@ -1,0 +1,72 @@
+{% extends "overexposure/blog_list.html" %}
+{% load cache_comments %}
+{% block title %}Samantha Joy Photography|Overexposure: {{ object.title }}{% endblock %}
+			{% block blogcontent %}
+                <h1 class="fl">{{ object.blog.name }} |</h1>
+                <span class="fl red p_all-10 bold">{{ object.blog.tag_line }}</span> <br class="cl"  />
+                <div class="p_all-10 width66 entry">
+                  <div class="pos-abs calendar">
+                  	<div class="month pt-4">{{ object.created|date:"M" }}</div>
+                    <div class="date">{{ object.created|date:"d" }}</div>
+                  </div>
+				  {% get_cached_comment_count object as comment_count %}
+                  <span class="fr compact-text"><a href="#" class="comment-count">{{ comment_count }} comment{{ comment_count|pluralize:",s" }}</a></span>
+                  <h2>{{ object.title|title }}</h2>
+				  <div id="js-wiki-blog-{{ entry.pk }}">
+				  	{{ object.get_html_content|safe }}
+                  	<div class="tags mt-4 ml-30"> tags: 
+                  	{% comment %}
+					{% tags_for_object object as tag_list %}
+					{% for tag in tag_list %}
+						<a href="{% url overexposure_entry_by_tag tag %}">{{ tag }}</a>
+					{% endfor %}
+					{% endcomment %}					
+					</div>
+				  </div>
+                  <div id="comments" class="trans35">
+                  <div class="mb-10">
+                  <span class="fl">{{ comment_count }} comment{{ comment_count|pluralize:",s" }}</span>
+                  <span class="fr"><a href="#comment-post" class="smooth">post comment</a></span>
+                  <br class="clearfloat" />
+                  </div>
+				  {% get_comment_list for object as comments %}
+				  {% for comment in comments %}
+                    <div class="comment-wrapper" id="c{{ comment.pk }}">                     
+                      <div class="comment {% ifequal comment.user.username 'esatterwhite' %}author {% else %}plain {% cycle '' 'alt'%}{% endifequal %}">
+                        <div class="width20 fl pr-4 pl-4">
+                          <div class="name">{{ comment.user.get_full_name }}</div>
+                          <div class="comment-month">{{ comment.submit_date|date:"b" }}</div>
+                          <div class="comment-day">{{ comment.submit_date|date:"d" }}</div>
+                        </div>
+                        <div class="text clearfloat"> {{ comment.comment }} </div>
+                      </div>
+                    </div>
+					{% empty %}
+					{% endfor %}
+					{% if user.is_authenticated %}
+					
+                    <div id="comment-form">
+                    <a name="comment-post"> &nbsp;</a>
+					{% get_comment_form for object as form %}
+                    <form method="post" action="{% comment_form_target %}" >
+						{% csrf_token %} 
+                    	<fieldset>
+                        <ul>
+                        	<li>
+                    			{{ form.comment }}
+                        	</li>							
+							<li>
+								<input type="hidden" name="next" value="{{ object.get_absolute_url }}" />
+								<input type="submit" id="" class="" value="Post Comment"/>
+							</li>
+							<div>{{ form.content_type }}{{ form.object_pk }}{{ form.security_hash }}{{ form.timestamp }}</div>							
+						</ul>
+                        </fieldset>
+                    </form>
+                    </div>
+					{% else %}
+					    <a href="#" id="ajaxlogin-2" class="mt-6">log in to leave comments!</a>
+					{% endif %}
+                  </div>				  
+                </div>
+			{% endblock %}
