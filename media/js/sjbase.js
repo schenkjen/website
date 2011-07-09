@@ -314,6 +314,7 @@ String.uniqueID = function(){
 			onExif:$empty,
 			onBeforeswap:$empty,
 			onSwap:$empty,
+			onImageload:$empty,
 			onSelect:$empty,
 			onUdate:$empty,
 			onReady:$empty
@@ -420,6 +421,7 @@ String.uniqueID = function(){
 							fader.dispose();
 							oldImg = thumb.retrieve('image');
 							if (!$defined(oldImg)) {
+								this.loadingnew = true;
 								newImg = new Asset.image(link, {
 									 id:'display-img'
 									,styles:{
@@ -428,6 +430,7 @@ String.uniqueID = function(){
 									}
 									,events:{
 										load:function(evt, el){
+											this.fireEvent('imageload', newImg)
 											if (this.options.autoShow) {
 												newImg.fade('in');
 											}
@@ -437,7 +440,9 @@ String.uniqueID = function(){
 								thumb.store('image', newImg);
 								newImg.inject(this.element,'bottom');						
 							}else{
+								loadingnew= false;
 								oldImg.inject(this.element,'bottom').fade('in');
+								this.fireEvent('imageload', oldImg)
 							}// end if else		
 							this.fireEvent('swap', $pick(newImg, oldImg));		
 
