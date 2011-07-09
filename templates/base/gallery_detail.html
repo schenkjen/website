@@ -35,10 +35,12 @@
 				onSelect:function(thumb){
 					Log.log('thumb', thumb);
 				},
-				onSwap:function(newImg){
+				onImageload:function(newImg){
 
 					var height = newImg.getSize().y;
-					
+					if( height ){
+						
+					}
 					document.id('description').morph({
 						height:(height +5)
 					});
