@@ -59,7 +59,7 @@ INTERNAL_IPS = ('127.0.0.1',)
 LANGUAGE_CODE = 'en-us'
 
 SITE_ID = 1
-
+#adding a comment
 USE_I18N = False
 ACCOUNT_ACTIVATION_DAYS = 7
 FORCE_LOWERCASE_TAGS = True
