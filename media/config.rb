@@ -9,8 +9,10 @@ javascripts_dir = "js"
 
 if production
   output_style = :compressed
+  line_comments = false
 else
-  output_style = :expanded  
+  output_style = :expanded
+  line_comments = true  
 end
 
 
@@ -21,7 +23,8 @@ end
 # relative_assets = true
 
 # To disable debugging comments that display the original location of your selectors. Uncomment:
-line_comments = false
+
+
 
 
 # If you prefer the indented syntax, you might want to regenerate this
