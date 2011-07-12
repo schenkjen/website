@@ -38,13 +38,9 @@
 				onImageload:function(newImg){
 
 					var height = newImg.getSize().y;
-					if( height ){
-						
-					}
 					document.id('description').morph({
 						height:(height +5)
-					});
-					
+					});					
 					newImg.fade.delay(550,newImg, 'in')
 					
 				}
