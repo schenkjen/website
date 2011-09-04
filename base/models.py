@@ -38,7 +38,7 @@ class Photo( ImageModel, SelfAwareModel ):
         cache_dir = 'photos'
         image_field = 'image'
         crop_horz_field = 'crop_from_horizontal' 
-        crop_very_field = 'crop_from_vertical'
+        crop_vert_field = 'crop_from_vertical'
         
     class Meta:
         ordering = ['-created']
@@ -99,6 +99,13 @@ class Gallery( SelfAwareModel ):
 
     def __unicode__(self):
         return u'%s' % self.title
+    
+    @permalink
+    def get_absolute_url(self):
+        return( 'sjphoto.base.views.gallery.gallery_detail', (), {
+              'slug':self.slug,
+              'obj_id':self.id
+        })
          
 class GalleryUpload(models.Model):
     zip_file    = models.FileField('images file (.zip)', upload_to="photos/temp",
