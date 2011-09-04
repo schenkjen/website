@@ -17,8 +17,8 @@ def photo_search(request):
             photos = Photo.objects.filter(title__icontains=request.POST['search'])[:10]
             return HttpResponse(simplejson.dumps([dict(title=p.title,
                                                        obj_id=p.pk,
-                                                       preview=p.get_search_url(),
-                                                       image=p.get_blog_url()) for p in photos]), mimetype="text/javascript")
+                                                       preview=p.search.url,
+                                                       image=p.blog.url) for p in photos]), mimetype="text/javascript")
 
     else:
         return HttpResponseForbidden()
@@ -27,6 +27,7 @@ def ajax_main_search(request):
     if xapian is None:
         result = []
         return HttpResponse(simplejson.dumps(result, mimetype="text/javascript"))
+
     if request.is_ajax():
         if request.POST:
             try:
@@ -41,7 +42,7 @@ def ajax_main_search(request):
                 indexers = [Entry.indexer, Gallery.indexer]
                 
                 comp = CompositeIndexer(*indexers)
-                res = comp.search(search).flags(flags)
+                res = comp.search(search).flags(flags)              
                 rlist = [dict(name=x.instance.__unicode__(),
                               ct_id=ContentType.objects.get_for_model(x.instance).pk,
                               ct=ContentType.objects.get_for_model(x.instance).name,
