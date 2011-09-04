@@ -12,7 +12,7 @@
 				  {% get_cached_comment_count object as comment_count %}
                   <span class="fr compact-text"><a href="#" class="comment-count">{{ comment_count }} comment{{ comment_count|pluralize:",s" }}</a></span>
                   <h2>{{ object.title|title }}</h2>
-				  <div id="js-wiki-blog-{{ entry.pk }}">
+				  <div id="js-wiki-blog-{{ object.pk }}">
 				  	{{ object.get_html_content|safe }}
                   	<div class="tags mt-4 ml-30"> tags: 
                   	{% comment %}
