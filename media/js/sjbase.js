@@ -753,7 +753,7 @@ String.uniqueID = function(){
             else {
                 return false;
             }
-            var send_btn, form_wrap, form, moo, form_set, controls;
+            var send_btn, form_wrap, form, moo, form_set, controls, csrf;
             
             form = new Element('form', {
                 method: 'post',
@@ -763,6 +763,11 @@ String.uniqueID = function(){
             });
             form_set = new Element('fieldset', {}).inject(form);
             form_wrap = new Element('ul').inject(form_set);
+            csrf = new Element('input',{
+            	type:"hidden",
+            	name:"csrfmiddlewaretoken",
+            	"value":Cookie.read('csrftoken')
+            }).inject( form )
             if (this.options.formURL === null) {
                 return false;
             }
