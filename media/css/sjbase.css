@@ -186,7 +186,7 @@ footer, header, hgroup, menu, nav, section {
 }
 
 /* line 25, ../sass/_layout.scss */
-.pos-abs {
+.pos-abs, .gallery-preview .title {
   position: absolute;
 }
 
@@ -558,7 +558,7 @@ table.tbl-trans tr:hover {
 }
 
 /* line 67, ../sass/_layout.scss */
-.pt-8 {
+.pt-8, .gallery-preview .title {
   padding-top: 8px;
 }
 
@@ -588,7 +588,7 @@ table.tbl-trans tr:hover {
 }
 
 /* line 76, ../sass/_layout.scss */
-.pb-8, #MenuBar1 li ul li a {
+.pb-8, #MenuBar1 li ul li a, .gallery-preview .title {
   padding-bottom: 8px;
 }
 
@@ -1971,6 +1971,7 @@ h4 {
   font-size: 1.2em;
   font-weight: bold;
   color: #d22c2c;
+  margin-bottom: 0.5em;
 }
 
 /* line 34, ../sass/_base.scss */
@@ -2289,7 +2290,7 @@ ul.MenuBarHorizontal li ul li.MenuBarItemIE {
 }
 
 /* line 15, ../sass/_galleries.scss */
-.frame-top.pos-abs ul {
+.frame-top.pos-abs ul, .gallery-preview .frame-top.title ul {
   position: absolute;
   right: 25px;
   bottom: 35%;
@@ -2329,13 +2330,18 @@ ul.MenuBarHorizontal li ul li.MenuBarItemIE {
   border: 2px transparent solid;
   margin-right: 8px;
 }
+/* line 26, ../sass/_galleries.scss */
+.gallery-preview .title {
+  width: 100%;
+  bottom: 0;
+}
 
-/* line 21, ../sass/_galleries.scss */
+/* line 34, ../sass/_galleries.scss */
 .gallery-preview:hover {
   border: 2px #09F solid;
 }
 
-/* line 22, ../sass/_galleries.scss */
+/* line 35, ../sass/_galleries.scss */
 #thumbbar img {
   padding: 5px;
   border: 1px solid #111111;
@@ -2343,7 +2349,7 @@ ul.MenuBarHorizontal li ul li.MenuBarItemIE {
   background-image: url(img/trans-bg-50.png);
 }
 
-/* line 28, ../sass/_galleries.scss */
+/* line 41, ../sass/_galleries.scss */
 #thumbbar img:hover, #thumbbar img.selected {
   padding: 5px;
   border: 1px solid #222222;
@@ -2351,7 +2357,7 @@ ul.MenuBarHorizontal li ul li.MenuBarItemIE {
   background-image: url(img/transpurple-bg-35.png);
 }
 
-/* line 34, ../sass/_galleries.scss */
+/* line 47, ../sass/_galleries.scss */
 #image-holder {
   text-align: center;
 }
@@ -2554,41 +2560,54 @@ fieldset ul li ul li {
 .multi-input {
   border: #222 1px solid;
   width: 99%;
-  background: #111;
+  background: #222;
+  -moz-border-radius: 8px;
+  -webkit-border-radius: 8px;
+  -o-border-radius: 8px;
+  -ie-border-radius: 8px;
+  border-radius: 8px;
 }
 /* line 107, ../sass/_forms.scss */
+.multi-input:hover {
+  background-color: #444;
+}
+/* line 110, ../sass/_forms.scss */
 .multi-input input {
   height: auto !important;
 }
+/* line 113, ../sass/_forms.scss */
+.multi-input input:hover {
+  background-color: #444;
+}
 
-/* line 112, ../sass/_forms.scss */
+/* line 119, ../sass/_forms.scss */
 #search input[type=submit] {
   background: url(img/button_gradient_white.jpg) repeat-x left center;
   width: auto;
   color: #333;
 }
 
-/* line 118, ../sass/_forms.scss */
+/* line 125, ../sass/_forms.scss */
 #login_form li input[type=text], #login_form li input[type=password] {
   height: 25px;
 }
 
-/* line 120, ../sass/_forms.scss */
+/* line 127, ../sass/_forms.scss */
 .multi-line input, .multi-input input:hover, .multi-input input:focus {
   background-color: transparent !important;
   color: #FFF;
 }
 
-/* line 125, ../sass/_forms.scss */
+/* line 132, ../sass/_forms.scss */
 #multiline li {
   margin-right: 5px;
 }
 
-/* line 126, ../sass/_forms.scss */
+/* line 133, ../sass/_forms.scss */
 #multiline input.multiline, #multiline li.multiline {
   display: inline;
 }
-/* line 132, ../sass/_forms.scss */
+/* line 139, ../sass/_forms.scss */
 #multiline input.multiline input.multiline, #multiline li.multiline input.multiline {
   border: none;
   background: transparent none;
