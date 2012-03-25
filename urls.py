@@ -23,6 +23,7 @@ urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
     url(r'^$', 'sjphoto.base.views.basic.home_page', name="sjphoto_homepage"),
     url(r'^gallery/(?P<slug>[-\w]+)/(?P<obj_id>\d+)/$', 'sjphoto.base.views.basic.home_page', name="sjphoto_feature_gallery_detail"),
+    url(r'^gallery/upload/$', 'sjphoto.base.views.basic.gallery_upload', name="sjphoto_gallery_upload"),
     url(r'^login/$', 'sjphoto.base.views.basic.login_user', name="sjphoto_login_user"),
     url(r'^ajax/login/$', 'sjphoto.base.views.ajax.ajax_login', name="sjphoto_ajax_login_user"),
     url(r'^logout/$', 'sjphoto.base.views.basic.logout_user', name="sjphoto_logout_user"),
@@ -33,6 +34,7 @@ urlpatterns = patterns('',
     url(r'^feeds/(?P<url>.*)/$', 'django.contrib.syndication.views.feed', {'feed_dict': feeds}, name="overexposure_blog_feed"),
     url(r'^search/photos/$', 'sjphoto.base.views.search.photo_search', name="sjphoto_photo_search"),
     url(r'^search/$', 'sjphoto.base.views.search.ajax_main_search', name='sjphoto_main_search'),
+    
 )
 
 urlpatterns += patterns('',
