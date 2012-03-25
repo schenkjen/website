@@ -4,13 +4,17 @@ from django.template import RequestContext
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
 from django.contrib.contenttypes.models import ContentType
-from django.http import HttpResponseRedirect, HttpResponse
+from django.http import HttpResponseRedirect, HttpResponse,\
+    HttpResponseForbidden
 from django.utils import simplejson
 from django.db.models import Q
 from sjphoto.base.models import Gallery
+from sjphoto.base.forms.models import GalleryUploadForm
 from sjphoto.forms.models import MultiComposeForm
 from messages.views import compose
 from sjphoto.base.forms.models import LoginForm
+from django.contrib.auth.decorators import permission_required
+from django.core.urlresolvers import reverse
 
 def home_page(request, slug=None, obj_id=None):
     
@@ -33,6 +37,20 @@ def gallery_view(request, slug):
                                                  'gallery':g, 
                                                  'gallery_list':FeatureGallery.objects.select_related(depth=3).all()[:3]},
                                                  context_instance=RequestContext(request))
+@permission_required('base.add_gallery')
+def gallery_upload(request):
+    form = None;
+    
+    if request.POST:
+        form = GalleryUploadForm( request.POST, request.FILES )
+        if form.is_valid():
+            gallery = form.save()
+            
+            return HttpResponseRedirect( gallery.get_absolute_url() )
+    else:
+        form = GalleryUploadForm()
+    return render_to_response('small_form.djhtml', {'form':form}, context_instance=RequestContext( request ) )
+
 def login_user(request, next='/'):
 
     #message = None
