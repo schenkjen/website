@@ -3,13 +3,13 @@ from django.conf.urls.defaults import *
 from django.conf import settings
 from django.contrib import admin
 from djapian import load_indexes
-from overexposure.feeds import  BlogFeed
+#from overexposure.feeds import  BlogFeed
 
 
 load_indexes()
 admin.autodiscover()
 feeds={
-    'blogs': BlogFeed,       
+ #   'blogs': BlogFeed,       
 }
 urlpatterns = patterns('',
     # Example:
@@ -46,7 +46,7 @@ urlpatterns += patterns('sjphoto.base.views.basic',
    url(r'^gallery/(?P<slug>[-\w]+)/$', 'gallery_view', name='pl-gallery'),                        
 )
 urlpatterns += patterns('',
-    url(r'^blog/', include('overexposure.urls')),
+  #  url(r'^blog/', include('overexposure.urls')),
 )
 urlpatterns += patterns('',
     url(r'^mail/', include('messages.urls')),
@@ -74,5 +74,5 @@ urlpatterns += patterns('',
     url(r'likes/', include('likeables.urls'))                        
 )
 urlpatterns += patterns('',
-   url(r'^generic_photo/', include('photologue.urls')),
+#   url(r'^generic_photo/', include('photologue.urls')),
 )
