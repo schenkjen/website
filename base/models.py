@@ -8,6 +8,7 @@ from django.conf import settings
 from django.contrib.auth.models import User
 from django.contrib.contenttypes import generic
 from django.core.urlresolvers import reverse, reverse
+from django.core.files.base import ContentFile
 from django.db import models
 from django.db.models import permalink
 from django_extensions.db.fields import AutoSlugField
@@ -16,6 +17,18 @@ from sjutils.models import SelfAwareModel
 from sjutils import EXIF 
 from sjphoto.base.managers import GalleryManager, FeaturedManager
 from likeables.models import Likeable
+from django.template.defaultfilters import slugify
+try:
+    import Image
+    import ImageFile
+    import ImageFilter
+    import ImageEnhance
+except ImportError:
+    try:
+        from PIL import Image
+        from PIL import ImageFile
+    except ImportError:
+        raise ImportError('Was unable to import the Python Imaging Library. Please confirm it`s installed and available on your current Python path.')
 
 #from photologue.models import Gallery, Photo
 
@@ -38,7 +51,7 @@ class Photo( ImageModel, SelfAwareModel ):
         cache_dir = 'photos'
         image_field = 'image'
         crop_horz_field = 'crop_from_horizontal' 
-        crop_very_field = 'crop_from_vertical'
+        crop_vert_field = 'crop_from_vertical'
         
     class Meta:
         ordering = ['-created']
@@ -99,6 +112,13 @@ class Gallery( SelfAwareModel ):
 
     def __unicode__(self):
         return u'%s' % self.title
+    
+    @permalink
+    def get_absolute_url(self):
+        return( 'sjphoto.base.views.gallery.gallery_detail', (), {
+              'slug':self.slug,
+              'obj_id':self.id
+        })
          
 class GalleryUpload(models.Model):
     zip_file    = models.FileField('images file (.zip)', upload_to="photos/temp",
@@ -131,10 +151,10 @@ class GalleryUpload(models.Model):
                 gallery = self.gallery
             else:
                 gallery = Gallery.objects.create(title=self.title,
-                                                 title_slug=slugify(self.title),
+                                                 slug=slugify(self.title),
                                                  description=self.description,
                                                  is_public=self.is_public,
-                                                 tags=self.tags)
+                                                 )
             from cStringIO import StringIO
             for filename in sorted(zip.namelist()):
                 if filename.startswith('__'): # do not process meta files
@@ -158,10 +178,10 @@ class GalleryUpload(models.Model):
                         title = ' '.join([self.title, str(count)])
                         slug = slugify(title)
                         try:
-                            p = Photo.objects.get(title_slug=slug)
+                            p = Photo.objects.get(slug=slug)
                         except Photo.DoesNotExist:
                             photo = Photo(title=title,
-                                          title_slug=slug,
+                                          slug=slug,
                                           caption=self.caption,
                                           is_public=self.is_public,)
                             photo.image.save(filename, ContentFile(data))

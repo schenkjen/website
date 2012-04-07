@@ -17,7 +17,20 @@
 #gallery-scroll {padding: 4px;height: 100%;margin-right: 40px;margin-left: 40px;overflow: hidden;}
 #gallery-scroll ul li {display: inline;padding: 2px;margin: 0 3px;}
 #description{background-color:#000;}
-.gallery-preview{float:left; position:relative;border:2px transparent solid; margin-right:8px;}
+.gallery-preview{
+  float:left; 
+  position:relative;
+  border:2px transparent solid; 
+  margin-right:8px;
+  
+  .title{
+    @extend .pos-abs;
+    @extend .pb-8;
+    @extend .pt-8;
+    width:100%;
+    bottom:0;
+  }
+}
 .gallery-preview:hover{border:2px #09F solid;}
 #thumbbar img {
   padding: 5px;

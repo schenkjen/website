@@ -101,11 +101,18 @@ fieldset {
 .multi-input{
   border:#222 1px solid;
   width:99%;
-  background:#111;
+  background:#222;
+  @include rounded(8px);
   @extend .p_all-4;
-  
+  &:hover, {
+    background-color:#444;
+  }
   input{ 
     height:auto !important;
+    
+    &:hover{
+      background-color:#444;
+    }
   }
 }
 

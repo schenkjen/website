@@ -1,5 +1,7 @@
 {% extends 'content_base.html' %}
+{% load likeable_tags %}
 {% load exif_tags %}
+
 {% block slabstyle %}z-index:501;{% endblock %}
 {% block slabid %}gallery-wrap{% endblock %}
 {% block slab %}
@@ -35,14 +37,12 @@
 				onSelect:function(thumb){
 					Log.log('thumb', thumb);
 				},
-				onSwap:function(newImg){
+				onImageload:function(newImg){
 
 					var height = newImg.getSize().y;
-					
 					document.id('description').morph({
 						height:(height +5)
-					});
-					
+					});					
 					newImg.fade.delay(550,newImg, 'in')
 					
 				}

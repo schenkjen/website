@@ -78,7 +78,7 @@ class Display( ImageSpec ):
     
 class Feature( ImageSpec ):
     processors = [ FeatureResize ]
-    pre_cache = True
+    access_as  = 'feature'
     quality   = 90
     
 class Gallery( ImageSpec ):
@@ -96,7 +96,7 @@ class Blog( ImageSpec ):
     
 class BlogManage( ImageSpec ):
     processors = [ BlogManagerResize ]
-    pre_cache = False
+    pre_cache = True
     
 class Thumbnail( ImageSpec ):
     processors = [ ThumbnailResize ]
@@ -107,6 +107,7 @@ class admin_thumbnail( ImageSpec ):
 class BlogThumb( ImageSpec ):
     processors = [ BlogThumbResize ]
     quality = 50
+    pre_cache = True
     
 class Search( ImageSpec ):
     processors = [ SearchResize ]
