@@ -47,7 +47,7 @@ class Photo( ImageModel, SelfAwareModel ):
     likes      = generic.GenericRelation( Likeable )
     
     class IKOptions:
-        spec_module = 'base.specs'
+        spec_module = 'sjphoto.base.specs'
         cache_dir = 'photos'
         image_field = 'image'
         crop_horz_field = 'crop_from_horizontal' 

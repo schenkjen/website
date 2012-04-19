@@ -3,7 +3,11 @@
 {% load inbox %}
 	<head>
 		{% block meta %}{% endblock %}
-		<title>{% block title %}{% endblock %}</title>
+		<title>
+			{% block title %}
+			Jenni Schenk Makeup artist. Movie Special Effect and beauty Makeup
+			{% endblock %}
+		</title>
 		<meta name="author" content="Eric Satterwhite" />
 		<meta name="description" content="Jenni Schenk Photography, Elegant photography for Weddings, new borns, senior portraits and any occasion" />
 		<meta name="keywords" content="watertown, photography, wedding, baby, new born, senior, high school, artistic" />
@@ -51,7 +55,9 @@
 							  </li>
 						          {% endif %}
 						<li><a href="{% url sjphoto_gallery_list %}">albums</a></li>
+						{% comment %}
 						 <li><a href="{% url overexposure_main_blog_list %}">news</a> </li>
+						{% endcomment %}
 						<li><a href="/about/">about</a></li>
 						<li><a href="/contact/">contact</a></li>
 					          {% comment %}

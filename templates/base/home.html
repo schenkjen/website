@@ -1,7 +1,9 @@
 {% extends "gallerypage.html" %}
 {% load exif_tags %}
 {% load generic_content %}
+{% comment %}
 {% block title %}Samantha Joy Photography: Artistic photography for every occasion{% endblock %}
+{% endcomment %}
 {% block photo-info %}
 {% with gallery.photos.all|first as main %}
   <div id="img-info">
