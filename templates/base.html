@@ -5,12 +5,12 @@
 		{% block meta %}{% endblock %}
 		<title>
 			{% block title %}
-			Jenni Schenk Makeup artist. Movie Special Effect and beauty Makeup
+			Jenni Schenk Makeup Artist.
 			{% endblock %}
 		</title>
 		<meta name="author" content="Eric Satterwhite" />
-		<meta name="description" content="Jenni Schenk Photography, Elegant photography for Weddings, new borns, senior portraits and any occasion" />
-		<meta name="keywords" content="watertown, photography, wedding, baby, new born, senior, high school, artistic" />
+		<meta name="description" content="Jenni Schenk Photography, Beauty and Movie Special Effects Makeup Artist" />
+		<meta name="keywords" content="photography, movie, SFX, gore, makeup, special effects" />
 		<link href="{{ MEDIA_URL }}css/reset.css" rel="stylesheet" media="all" />
 		<link href="{{ MEDIA_URL }}css/sjbase.css" rel="stylesheet" media="screen" />
 		<link href="{{ MEDIA_URL }}css/MenuMatic.css" rel="stylesheet" media="screen" />
@@ -54,7 +54,7 @@
 							  	</ul>
 							  </li>
 						          {% endif %}
-						<li><a href="{% url sjphoto_gallery_list %}">albums</a></li>
+						<li><a href="{% url sjphoto_gallery_list %}">portfolio</a></li>
 						{% comment %}
 						 <li><a href="{% url overexposure_main_blog_list %}">news</a> </li>
 						{% endcomment %}
@@ -91,7 +91,11 @@
 					</div>
 						{% block content %}hello world{% endblock %}
 					<div class="shadow-wrap" id="{% block shadowdown %}shadowdown{% endblock %}">
-		              <div id="footer"> <a href="{% url sjphoto_homepage %}">home</a> <a href="{% url overexposure_main_blog_list %}">blog</a> <a href="/about/">about me</a> <a href="/contact/">contact</a> </div>				
+					      <div id="footer"> 
+						<a href="{% url sjphoto_homepage %}">home</a> 
+						<a href="{% url sjphoto_gallery_list %}">portfolio</a>
+						<a href="/about/">about</a> <a href="/contact/">contact</a> 
+						</div>				
 					</div>
 				</div>
 			</div>
