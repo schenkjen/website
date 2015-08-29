@@ -359,12 +359,13 @@ String.uniqueID = function(){
 					//this.toggle();
 				}.bind(this));
 			}
+			/*
 			$$(this.options.controlClass).addEvents({
 				mouseover:function(e){
 					this.options._infoElement.reveal();
 				}.bind(this)
 			});		
-					
+			*/		
 			this.thumbs.fade('0.3');
 			this.thumbs[0].fade('in').addClass('selected');
 			if ($defined(this.options._infoElement)) {

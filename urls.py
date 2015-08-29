@@ -46,7 +46,7 @@ urlpatterns += patterns('sjphoto.base.views.basic',
    url(r'^gallery/(?P<slug>[-\w]+)/$', 'gallery_view', name='pl-gallery'),                        
 )
 urlpatterns += patterns('',
-  #  url(r'^blog/', include('overexposure.urls')),
+    url(r'^blog/', include('overexposure.urls')),
 )
 urlpatterns += patterns('',
     url(r'^mail/', include('messages.urls')),

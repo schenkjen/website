@@ -21,12 +21,12 @@ class GalleryAdmin( admin.ModelAdmin ):
     list_display = ('title', 'created', 'photo_count')
     list_filter = ['created', 'is_public']
     date_hierarchy = 'created'
-    filter_horizontal = ('photos',)
+    filter_horizontal = ("photos", )
     
 class ClassAdmin(admin.ModelAdmin):
     prepopulated_fields = {'slug': ('title',)}
     filter_horizontal = ('photos',)
     
-admin.site.register(Gallery)
+admin.site.register(Gallery, GalleryAdmin)
 admin.site.register(Photo, PhotoAdmin)
 admin.site.register(PhotoContest)

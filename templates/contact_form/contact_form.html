@@ -12,6 +12,7 @@ If you have an <a href="{% url registration_register %}"class="red">account</a> 
 
 <h3>By Email:</h3>
 <form id="contact_form" action="" method="post" class="trans75">
+{% csrf_token %}
 	<fieldset>
 		<ul>
 			{{ form.as_ul }}
