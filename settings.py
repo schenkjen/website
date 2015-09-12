@@ -1,6 +1,6 @@
 # Django settings for myproject project.
 import os
-DEVLOPMENT_MODE = True
+DEVLOPMENT_MODE = False
 MAINTENANCE_MODE = False
 
 MYSQLMODE = False
@@ -47,9 +47,9 @@ if PGSQLMODE:
     DATABASES = {
         'default':{
             "ENGINE":'django.db.backends.postgresql_psycopg2',
-            "NAME":"sjphoto",
-            "USER":'postgres',
-            "PASSWORD":'qxm8uavi'
+            "NAME":"jshenk",
+            "USER":'jshenk',
+            "PASSWORD":'PloI098$'
         }
     }
 
@@ -73,8 +73,8 @@ MEDIA_ROOT = PROJECT_ROOT + '/media/'
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash if there is a path component (optional in other cases).
 # Examples: "http://media.lawrence.com", "http://example.com/media/"
-MEDIA_URL = 'http://127.0.0.1:8000/static_media/'
-#MEDIA_URL = 'http://media.samanthajoyphotography.com/'
+#MEDIA_URL = 'http://127.0.0.1:8000/static_media/'
+MEDIA_URL = 'http://media.jennischenk.com/'
 
 # URL prefix for admin media -- CSS, JavaScript and images. Make sure to use a
 # trailing slash.
